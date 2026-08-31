@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style data-omelette-print-defaults>
+@media print {
+  @page { margin: 0.5in; }
+  h1, h2, h3, h4, h5, h6 { break-after: avoid; }
+  figure, table, pre, blockquote, img, svg, tr, [class~="card" i] { break-inside: avoid; }
+  img, svg { max-width: 100%; }
+  p { orphans: 3; widows: 3; }
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buku Ajar Eksperimen Fisika STEM-ESD — Bab 2 - Analisis Air Tercemar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,500&amp;family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #e8efee; }
+  #bookRoot ::selection { background: rgba(14,131,136,0.22); }
+  #bookScroll { scroll-behavior: smooth; }
+  .katex { font-size: 1.02em; }
+  .katex-display { margin: 0.3em 0 !important; overflow-x: auto; overflow-y: hidden; }
+  @keyframes ecFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @keyframes ecFlow { 0% { background-position: 0 0; } 100% { background-position: 40px 0; } }
+  @media (max-width: 1040px) {
+    #tocAside { transform: translateX(-100%); }
+    #tocAside.open { transform: none; }
+    #tocToggle { display: flex !important; }
+    #bookMain { margin-left: 0 !important; }
+  }
+  @media print {
+    #tocAside, #tocToggle, #progressBar, .no-print { display: none !important; }
+    #bookMain { margin-left: 0 !important; }
+    #bookRoot { background: #fff !important; }
+    section[data-chapter] { break-before: page; }
+  }
+</style>
+</helmet>
+
+<div id="bookRoot" style="--paper:#f4f8f7; --ink:#0f3238; --body:#243c41; --muted:#5f7d80; --teal:#0e8388; --teal-d:#0a5a5d; --aqua:#1596ad; --green:#2f8f5b; --amber:#c47f22; --violet:#6a4c93; --indigo:#375a97; --coral:#cf503b; --line:#d6e4e1; --card:#ffffff; background:var(--paper); color:var(--body); font-family:'Mulish',system-ui,sans-serif; font-size:16.5px; line-height:1.72; -webkit-font-smoothing:antialiased; min-height:100vh; position:relative;">
+
+
+  <div id="progressBar" style="position:fixed; top:0; left:0; height:4px; width:0%; background:linear-gradient(90deg,#0e8388,#1596ad,#2f8f5b); z-index:1000; transition:width .12s linear;"></div>
+
+  <!-- ============ LOGIN GATE ============ -->
+  <div id="authGate" class="no-print" style="display:none; position:fixed; inset:0; z-index:2000; background:linear-gradient(155deg,#0c2a30 0%,#0e5a5c 60%,#12a08c 100%); overflow-y:auto;">
+    <div style="position:absolute; inset:0; opacity:.15; background-image:radial-gradient(circle at 82% 16%, #7fffe0 0, transparent 42%), radial-gradient(circle at 12% 86%, #2f8f5b 0, transparent 40%); pointer-events:none;"></div>
+    <div style="position:relative; min-height:100%; display:flex; align-items:center; justify-content:center; padding:40px 20px;">
+      <div style="width:100%; max-width:440px; background:#fff; border-radius:22px; box-shadow:0 30px 80px -30px rgba(0,0,0,.6); overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#0c2a30,#12857f); color:#fff; padding:26px 30px;">
+          <div style="display:flex; align-items:center; gap:11px;">
+            <div style="width:38px; height:38px; border-radius:10px; background:linear-gradient(135deg,#12a3a0,#2f8f5b); display:flex; align-items:center; justify-content:center;">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5C12 2.5 5 10 5 15a7 7 0 0 0 14 0c0-5-7-12.5-7-12.5z"></path></svg>
+            </div>
+            <div>
+              <div style="font:800 15px/1.1 'Mulish'; letter-spacing:.01em;">Bahan Ajar Digital Interaktif</div>
+              <div style="font:600 10.5px/1.2 'Mulish'; color:#8fd8ce; letter-spacing:.14em; text-transform:uppercase;">Eksperimen Fisika · STEM-ESD</div>
+            </div>
+          </div>
+          <p style="margin:14px 0 0; font-size:13px; color:#cfeae4;">Masuk untuk mulai belajar. Jawaban Anda tersimpan &amp; dapat dipantau dosen.</p>
+        </div>
+
+        <div style="display:flex; padding:16px 24px 0; gap:8px;">
+          <button id="tabMhs" data-auth-tab="mhs" style="flex:1; padding:11px; border:none; border-radius:10px 10px 0 0; background:#eef6f4; color:var(--teal-d); font-weight:800; font-family:inherit; font-size:14px; cursor:pointer;">Mahasiswa</button>
+          <button id="tabDosen" data-auth-tab="dosen" style="flex:1; padding:11px; border:none; border-radius:10px 10px 0 0; background:#f4f8f7; color:var(--muted); font-weight:700; font-family:inherit; font-size:14px; cursor:pointer;">Dosen</button>
+        </div>
+
+        <!-- Mahasiswa form -->
+        <div id="formMhs" style="padding:22px 24px 26px;">
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin-bottom:5px;">Nama Lengkap</label>
+          <input id="mhsName" type="text" placeholder="mis. Ahmad Fauzi" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; margin-bottom:14px; color:var(--body);">
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin-bottom:5px;">NIM</label>
+          <input id="mhsNim" type="text" placeholder="mis. 2100123" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; margin-bottom:6px; color:var(--body);">
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:10px 0 5px;">Kelas / Rombel <span style="font-weight:400; color:var(--muted);">(opsional)</span></label>
+          <input id="mhsKelas" type="text" placeholder="mis. Pendidikan Fisika A" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; margin-bottom:16px; color:var(--body);">
+          <div id="mhsErr" style="display:none; color:var(--coral); font-size:12.5px; margin-bottom:10px;"></div>
+          <button data-auth-login="mhs" style="width:100%; padding:13px; border:none; border-radius:10px; background:linear-gradient(135deg,#0e8388,#2f8f5b); color:#fff; font-weight:800; font-family:inherit; font-size:15px; cursor:pointer;">Masuk sebagai Mahasiswa</button>
+        </div>
+
+        <!-- Dosen form -->
+        <div id="formDosen" style="display:none; padding:22px 24px 26px;">
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin-bottom:5px;">Nama Dosen</label>
+          <input id="dosenName" type="text" placeholder="mis. Febrian Virijai" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; margin-bottom:14px; color:var(--body);">
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin-bottom:5px;">Kata Sandi Dosen</label>
+          <input id="dosenPass" type="password" placeholder="Masukkan kata sandi" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; margin-bottom:6px; color:var(--body);">
+          <div style="font-size:11.5px; color:var(--muted); margin-bottom:12px;">Kata sandi bawaan: <b>dosen2024</b> (dapat diganti pada logika buku).</div>
+          <div id="dosenErr" style="display:none; color:var(--coral); font-size:12.5px; margin-bottom:10px;"></div>
+          <button data-auth-login="dosen" style="width:100%; padding:13px; border:none; border-radius:10px; background:linear-gradient(135deg,#375a97,#0e8388); color:#fff; font-weight:800; font-family:inherit; font-size:15px; cursor:pointer;">Masuk sebagai Dosen</button>
+        </div>
+        <div style="padding:0 24px 22px; font-size:11.5px; color:var(--muted); line-height:1.6;">Data tersimpan di peramban perangkat ini. Untuk menyetor jawaban dari perangkat berbeda, gunakan tombol <b>Kumpulkan Jawaban</b> (mahasiswa) lalu <b>Impor</b> pada dasbor dosen.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ USER PILL ============ -->
+  <div id="userPill" class="no-print" style="display:none; position:fixed; top:14px; right:16px; z-index:1002; align-items:center; gap:8px; background:var(--card); border:1px solid var(--line); border-radius:999px; padding:5px 6px 5px 14px; box-shadow:0 6px 18px rgba(15,50,56,.14);">
+    <span id="pillRole" style="font:800 10px/1 'Mulish'; letter-spacing:.08em; text-transform:uppercase; padding:4px 8px; border-radius:999px; background:#eef6f4; color:var(--teal-d);">Mahasiswa</span>
+    <span id="pillName" style="font-size:13px; font-weight:700; color:var(--ink); max-width:150px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">—</span>
+    <button id="pillDash" style="display:none; width:32px; height:32px; border-radius:50%; border:none; background:#375a97; color:#fff; cursor:pointer; align-items:center; justify-content:center;" title="Dasbor Dosen"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg></button>
+    <button id="pillCollect" style="display:none; width:32px; height:32px; border-radius:50%; border:none; background:#2f8f5b; color:#fff; cursor:pointer; align-items:center; justify-content:center;" title="Kumpulkan / Unduh Jawaban"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"></path></svg></button>
+    <button id="pillLogout" style="width:32px; height:32px; border-radius:50%; border:none; background:#eef0ee; color:var(--muted); cursor:pointer; align-items:center; justify-content:center;" title="Keluar"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"></path></svg></button>
+  </div>
+
+  <!-- ============ DASHBOARD (DOSEN) ============ -->
+  <div id="dashModal" class="no-print" style="display:none; position:fixed; inset:0; z-index:2100; background:rgba(8,26,30,.55); backdrop-filter:blur(3px); overflow-y:auto;">
+    <div style="min-height:100%; padding:32px 18px; display:flex; justify-content:center;">
+      <div style="width:100%; max-width:920px; background:#f4f8f7; border-radius:20px; box-shadow:0 30px 80px -30px rgba(0,0,0,.6); overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#0c2a30,#375a97); color:#fff; padding:22px 26px; display:flex; align-items:center; justify-content:space-between; gap:14px;">
+          <div>
+            <div style="font:800 19px/1.1 'Newsreader'; font-family:'Newsreader',serif;">Dasbor Monitoring Dosen</div>
+            <div style="font-size:12.5px; color:#c5d6f0; margin-top:3px;">Rekap aktivitas &amp; jawaban mahasiswa pada perangkat ini</div>
+          </div>
+          <button id="dashClose" style="width:38px; height:38px; border-radius:50%; border:none; background:rgba(255,255,255,.16); color:#fff; font-size:20px; cursor:pointer;">✕</button>
+        </div>
+        <div style="padding:18px 22px; display:flex; flex-wrap:wrap; gap:10px; border-bottom:1px solid var(--line); background:#fff;">
+          <button id="dashRefresh" style="padding:9px 16px; border:1px solid var(--line); border-radius:9px; background:#fff; color:var(--teal-d); font-weight:700; font-family:inherit; font-size:13px; cursor:pointer;">↻ Muat Ulang</button>
+          <button id="dashCsv" style="padding:9px 16px; border:1px solid var(--line); border-radius:9px; background:#fff; color:var(--teal-d); font-weight:700; font-family:inherit; font-size:13px; cursor:pointer;">⇩ Ekspor Semua (CSV)</button>
+          <label style="padding:9px 16px; border:1px solid var(--line); border-radius:9px; background:#fff; color:var(--indigo); font-weight:700; font-size:13px; cursor:pointer;">⇧ Impor Jawaban (JSON)<input id="dashImport" type="file" accept="application/json,.json" multiple="" style="display:none;"></label>
+          <button id="dashClearAll" style="padding:9px 16px; border:1px solid #f0c9c2; border-radius:9px; background:#fff; color:var(--coral); font-weight:700; font-family:inherit; font-size:13px; cursor:pointer; margin-left:auto;">🗑 Hapus Semua Data</button>
+        </div>
+        <div id="dashBody" style="padding:18px 22px 26px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <button id="tocToggle" style="display:none; position:fixed; top:16px; left:16px; z-index:1001; width:46px; height:46px; border-radius:12px; border:1px solid var(--line); background:var(--card); color:var(--teal-d); align-items:center; justify-content:center; cursor:pointer; box-shadow:0 6px 18px rgba(15,50,56,.14);">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+  </button>
+
+  <aside id="tocAside" style="position:fixed; top:0; left:0; width:280px; height:100vh; overflow-y:auto; background:#0c2a30; color:#cfe6e2; z-index:999; transition:transform .28s ease; padding:0 0 40px;">
+    <div style="padding:26px 24px 18px; border-bottom:1px solid rgba(255,255,255,.09);">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,#12a3a0,#2f8f5b); display:flex; align-items:center; justify-content:center;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5C12 2.5 5 10 5 15a7 7 0 0 0 14 0c0-5-7-12.5-7-12.5z"></path></svg>
+        </div>
+        <div>
+          <div style="font:800 13.5px/1.1 'Mulish'; color:#fff; letter-spacing:.02em;">Eksperimen Fisika</div>
+          <div style="font:600 10.5px/1.2 'Mulish'; color:#6fb3ab; letter-spacing:.14em; text-transform:uppercase;">STEM · ESD</div>
+        </div>
+      </div>
+    </div>
+    <nav style="padding:14px 12px; font-size:13.5px;">
+      <div style="font:700 10px/1 'Mulish'; letter-spacing:.16em; text-transform:uppercase; color:#5f9990; padding:10px 12px 6px;">Bagian Awal</div>
+      <a href="Buku%20Ajar%20Elektrokoagulasi%20STEM-ESD.dc.html#sampul" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Sampul</a>
+            <a href="Buku%20Ajar%20Elektrokoagulasi%20STEM-ESD.dc.html#pengantar" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Kata Pengantar</a>
+            <a href="Buku%20Ajar%20Elektrokoagulasi%20STEM-ESD.dc.html#panduan" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Panduan Penggunaan</a>
+            <a href="Buku%20Ajar%20Elektrokoagulasi%20STEM-ESD.dc.html#alur" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Peta Alur & Matriks</a>
+            <a href="Buku%20Ajar%20Elektrokoagulasi%20STEM-ESD.dc.html#simbol" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Daftar Simbol & Satuan</a>
+            <div style="font:700 10px/1 'Mulish'; letter-spacing:.16em; text-transform:uppercase; color:#5f9990; padding:16px 12px 6px;">8 Pertemuan</div>
+      <a href="Bab%201.dc.html" style="display:flex; gap:10px; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;"><b style="color:#7fd8cf;">01</b><span>Orientasi & Krisis Air</span></a>
+      <a href="Bab%202.dc.html" style="display:flex; gap:10px; padding:8px 12px; border-radius:8px; color:#fff; text-decoration:none; background:rgba(127,216,207,.18); font-weight:700;"><b style="color:#7fd8cf;">02</b><span>Analisis Air Tercemar</span></a>
+      <a href="Bab%203.dc.html" style="display:flex; gap:10px; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;"><b style="color:#7fd8cf;">03</b><span>Kelistrikan & Elektromagnetik</span></a>
+      <a href="Bab%204.dc.html" style="display:flex; gap:10px; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;"><b style="color:#7fd8cf;">04</b><span>Elektrokimia & Koagulasi</span></a>
+      <a href="Bab%205.dc.html" style="display:flex; gap:10px; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;"><b style="color:#7fd8cf;">05</b><span>Faraday & Efisiensi Energi</span></a>
+      <a href="Bab%206.dc.html" style="display:flex; gap:10px; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;"><b style="color:#7fd8cf;">06</b><span>Desain Alat Berkelanjutan</span></a>
+      <a href="Bab%207.dc.html" style="display:flex; gap:10px; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;"><b style="color:#7fd8cf;">07</b><span>Praktikum & Analisis Data</span></a>
+      <a href="Bab%208.dc.html" style="display:flex; gap:10px; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;"><b style="color:#7fd8cf;">08</b><span>Presentasi, Posttest & Angket</span></a>
+            <div style="font:700 10px/1 'Mulish'; letter-spacing:.16em; text-transform:uppercase; color:#5f9990; padding:16px 12px 6px;">Lampiran</div>
+      <a href="Lampiran.dc.html#posttest" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Simulasi Posttest CPSS–PCK</a>
+            <a href="Lampiran.dc.html#angket" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Angket EA (Interaktif)</a>
+            <a href="Lampiran.dc.html#rubrik" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Rubrik Penilaian</a>
+            <a href="Lampiran.dc.html#sop" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">SOP Keselamatan</a>
+            <a href="Lampiran.dc.html#glosarium" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Glosarium</a>
+            <a href="Lampiran.dc.html#kunci" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Kunci Jawaban</a>
+            <a href="Lampiran.dc.html#validasi" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Lembar Validasi</a>
+            <a href="Lampiran.dc.html#pustaka" style="display:block; padding:8px 12px; border-radius:8px; color:#cfe6e2; text-decoration:none;">Daftar Pustaka</a>
+          </nav>
+  </aside>
+
+  <main id="bookMain" style="margin-left:280px;">
+    <article id="bookScroll" style="max-width:880px; margin:0 auto; padding:0 34px 120px;">
+
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin:74px 0 6px; flex-wrap:wrap;">
+        <a href="Bab%201.dc.html" style="display:flex; align-items:center; gap:6px; padding:10px 16px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--teal-d); text-decoration:none; font-weight:700; font-size:13.5px;">← Bab 1 · Orientasi & Krisis Air</a>
+        <a href="Buku%20Ajar%20Elektrokoagulasi%20STEM-ESD.dc.html#alur" style="font-size:12.5px; color:var(--muted); text-decoration:none;">Daftar Isi</a>
+        <a href="Bab%203.dc.html" style="display:flex; align-items:center; gap:6px; padding:10px 16px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--teal-d); text-decoration:none; font-weight:700; font-size:13.5px;">Bab 3 · Kelistrikan & Elektromagnetik →</a>
+      </div>
+
+      <!-- ============================================================ BAB 2 ============================================================ -->
+      <section id="bab2" data-chapter="" data-section="" data-screen-label="Bab 2" style="padding:70px 0 30px;">
+        <div style="position:relative; border-radius:22px; overflow:hidden; background:linear-gradient(135deg,#0c2a30,#0e6f68); color:#fff; padding:38px 40px;">
+          <div style="position:absolute; right:-30px; top:-30px; font:800 220px/1 'Newsreader'; color:rgba(255,255,255,.06);">02</div>
+          <div style="position:relative;">
+            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px;">
+              <span style="padding:6px 13px; background:linear-gradient(135deg,#e3d3f7,#b795e8); color:#3a1f5c; border-radius:999px; font:800 11px/1 'Mulish'; box-shadow:0 2px 8px rgba(0,0,0,.15); border:1px solid rgba(255,255,255,.35);">CPSS · Problem Identification</span>
+              <span style="padding:6px 13px; background:linear-gradient(135deg,#d3e2f9,#8fb4ec); color:#1c3566; border-radius:999px; font:800 11px/1 'Mulish'; box-shadow:0 2px 8px rgba(0,0,0,.15); border:1px solid rgba(255,255,255,.35);">PCK · Curriculum Knowledge</span>
+              <span style="padding:6px 13px; background:linear-gradient(135deg,#c8f2d6,#82d9a6); color:#0f4a2a; border-radius:999px; font:800 11px/1 'Mulish'; box-shadow:0 2px 8px rgba(0,0,0,.15); border:1px solid rgba(255,255,255,.35);">EA · Isu Lingkungan</span>
+              <span style="padding:6px 13px; background:linear-gradient(135deg,#ffe1a3,#f0ac4e); color:#4a2c05; border-radius:999px; font:800 11px/1 'Mulish'; box-shadow:0 2px 8px rgba(0,0,0,.18); border:1px solid rgba(255,255,255,.4);">STEM-ESD · Sains (S)</span>
+            </div>
+            <div style="font:700 12px/1 'Mulish'; letter-spacing:.2em; text-transform:uppercase; color:#7fd8cf;">Pertemuan 2</div>
+            <h2 style="font-family:'Newsreader',serif; font-weight:600; font-size:40px; line-height:1.05; margin:8px 0 0;">Analisis Masalah Air Sungai Tercemar</h2>
+          </div>
+        </div>
+
+        <div style="margin-top:22px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 20px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:13px;">
+            <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:var(--teal);">Sintaks Project-Based Learning · Pertemuan 2</div>
+            <span style="font-size:11.5px; color:var(--muted); font-weight:600;">Proyek: Alat Elektrokoagulasi</span>
+          </div>
+          <ol style="margin:0 0 14px; padding-left:20px; font-size:12.5px; line-height:1.6; color:var(--body);"><li style="margin-bottom:5px;"><b style="color:var(--teal-d);">Orientasi Masalah / Pertanyaan Pendorong:</b> Studi Kasus data Tabel 2.1 &amp; kotak Ayo Berpikir</li><li style="margin-bottom:5px;"><b style="color:var(--teal-d);">Investigasi Konsep &amp; Konteks:</b> Konsep Inti 2.1–2.5 (parameter fisik/kimia air, baku mutu, akar masalah)</li><li style="margin-bottom:5px;"><b style="color:var(--teal-d);">Perencanaan Proyek:</b> Aktivitas baru: menetapkan sumber air &amp; parameter uji proyek</li><li style="margin-bottom:5px;"><b style="color:var(--teal-d);">Pengembangan &amp; Pengujian Produk:</b> LKM 2: Diagram Fishbone Akar Masalah</li><li style="margin-bottom:5px;"><b style="color:var(--teal-d);">Monitoring &amp; Revisi:</b> Aktivitas baru: cek pemahaman mandiri</li><li style="margin-bottom:5px;"><b style="color:var(--teal-d);">Presentasi Hasil:</b> Aktivitas baru: berbagi hasil analisis fishbone</li><li style="margin-bottom:5px;"><b style="color:var(--teal-d);">Refleksi CPSS, PCK &amp; EA:</b> Tantangan CPSS (Problem Identification), Teacher Candidate Corner, Green Note</li></ol>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:88px; text-align:center; background:#eef4f3; color:#7a9793; border-radius:10px; padding:9px 6px; "><div style="font:800 13px/1 'Mulish';">1</div><div style="font-size:10px; margin-top:3px; line-height:1.22; font-weight:600;">Orientasi Masalah</div></div><div style="flex:1; min-width:88px; text-align:center; background:linear-gradient(135deg,#0e8388,#2f8f5b); color:#fff; border-radius:10px; padding:9px 6px; box-shadow:0 4px 12px -4px rgba(14,131,136,.5);"><div style="font:800 13px/1 'Mulish';">2</div><div style="font-size:10px; margin-top:3px; line-height:1.22; font-weight:700;">Investigasi Konsep</div></div><div style="flex:1; min-width:88px; text-align:center; background:#eef4f3; color:#7a9793; border-radius:10px; padding:9px 6px; "><div style="font:800 13px/1 'Mulish';">3</div><div style="font-size:10px; margin-top:3px; line-height:1.22; font-weight:600;">Perencanaan Proyek</div></div><div style="flex:1; min-width:88px; text-align:center; background:#eef4f3; color:#7a9793; border-radius:10px; padding:9px 6px; "><div style="font:800 13px/1 'Mulish';">4</div><div style="font-size:10px; margin-top:3px; line-height:1.22; font-weight:600;">Pengembangan &amp; Uji</div></div><div style="flex:1; min-width:88px; text-align:center; background:#eef4f3; color:#7a9793; border-radius:10px; padding:9px 6px; "><div style="font:800 13px/1 'Mulish';">5</div><div style="font-size:10px; margin-top:3px; line-height:1.22; font-weight:600;">Monitoring &amp; Revisi</div></div><div style="flex:1; min-width:88px; text-align:center; background:#eef4f3; color:#7a9793; border-radius:10px; padding:9px 6px; "><div style="font:800 13px/1 'Mulish';">6</div><div style="font-size:10px; margin-top:3px; line-height:1.22; font-weight:600;">Presentasi Hasil</div></div><div style="flex:1; min-width:88px; text-align:center; background:#eef4f3; color:#7a9793; border-radius:10px; padding:9px 6px; "><div style="font:800 13px/1 'Mulish';">7</div><div style="font-size:10px; margin-top:3px; line-height:1.22; font-weight:600;">Refleksi CPSS·PCK·EA</div></div>
+          </div>
+          <div style="margin-top:13px; background:#f0f8f6; border-left:3px solid var(--teal); border-radius:8px; padding:10px 14px; font-size:13.5px;"><b>Fokus PjBL pertemuan ini:</b> <b>Investigasi konteks masalah</b>: menganalisis data kualitas air sungai tercemar untuk merumuskan masalah nyata yang akan dipecahkan melalui proyek.</div>
+          <div style="margin-top:8px; font-size:11px; color:var(--muted); line-height:1.5;">Model pembelajaran: Project-Based Learning (Blumenfeld et al., 1991; Krajcik &amp; Blumenfeld, 2006; Larmer, Mergendoller, &amp; Boss, 2015).</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:16px; margin-top:22px;">
+          <div style="background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px 22px;">
+            <h3 style="font-family:'Newsreader',serif; font-size:20px; margin:0 0 10px; color:var(--ink);">Capaian Pembelajaran Bab</h3>
+            <ol style="margin:0; padding-left:20px; font-size:14.5px;">
+              <li>menyebutkan parameter kualitas air fisik dan kimia;</li>
+              <li>membaca data kualitas air dan membandingkannya dengan baku mutu;</li>
+              <li>menghitung penyimpangan parameter terhadap baku mutu;</li>
+              <li>mengidentifikasi akar masalah pencemaran (CPSS–Problem Identification);</li>
+              <li>mengaitkan parameter air dengan konsep &amp; kurikulum fisika (PCK).</li>
+            </ol>
+          </div>
+          <div style="background:linear-gradient(160deg,#f0f8f6,#e2f1ec); border:1px solid var(--line); border-radius:16px; padding:20px 22px;">
+            <h3 style="font-family:'Newsreader',serif; font-size:20px; margin:0 0 10px; color:var(--ink);">Kata Kunci</h3>
+            <div style="display:flex; flex-wrap:wrap; gap:7px;">
+              <span style="padding:5px 12px; background:#fff; border:1px solid var(--line); border-radius:999px; font-size:13px;">pH</span>
+              <span style="padding:5px 12px; background:#fff; border:1px solid var(--line); border-radius:999px; font-size:13px;">TDS</span>
+              <span style="padding:5px 12px; background:#fff; border:1px solid var(--line); border-radius:999px; font-size:13px;">TSS</span>
+              <span style="padding:5px 12px; background:#fff; border:1px solid var(--line); border-radius:999px; font-size:13px;">kekeruhan (NTU)</span>
+              <span style="padding:5px 12px; background:#fff; border:1px solid var(--line); border-radius:999px; font-size:13px;">DO</span>
+              <span style="padding:5px 12px; background:#fff; border:1px solid var(--line); border-radius:999px; font-size:13px;">BOD</span>
+              <span style="padding:5px 12px; background:#fff; border:1px solid var(--line); border-radius:999px; font-size:13px;">COD</span>
+              <span style="padding:5px 12px; background:#fff; border:1px solid var(--line); border-radius:999px; font-size:13px;">konduktivitas</span>
+              <span style="padding:5px 12px; background:#fff; border:1px solid var(--line); border-radius:999px; font-size:13px;">baku mutu</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#eef7fa; border:1px solid #cfe7ef; border-left:4px solid var(--aqua); border-radius:14px; padding:20px 22px; margin:24px 0;">
+                  <div style="background:linear-gradient(160deg,#fbfdfc,#f1f8f6); border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin:22px 0 24px; opacity:0; animation:ecFade .5s ease both;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+            <div style="font:700 12px/1 'Mulish'; letter-spacing:.12em; text-transform:uppercase; color:var(--ink);">Integrasi STEM-ESD · Pertemuan 2</div>
+            <div style="flex:1; height:1px; background:linear-gradient(90deg,var(--line),transparent);"></div>
+          </div>
+          <p style="margin:0 0 14px; font-size:13px; color:var(--muted);">Ke mana Sains, Teknologi, Rekayasa (<i>Engineering</i>), Matematika, dan ESD hadir pada pertemuan ini:</p>
+          <div style="display:flex; flex-wrap:wrap; gap:10px;">
+            <div style="flex:1; min-width:150px; background:#fff; border:1px solid var(--line); border-top:4px solid #1596ad; border-radius:12px; padding:14px 14px 15px;"><div style="width:34px; height:34px; border-radius:9px; background:#1596ad; color:#fff; display:flex; align-items:center; justify-content:center; font:800 14px/1 'Mulish'; margin-bottom:9px;">S</div><div style="font:800 13.5px/1.1 'Mulish'; color:#1596ad; margin-bottom:5px;">Sains</div><div style="font-size:12px; line-height:1.5; color:var(--body);">Parameter fisik &amp; kimia air, ekologi pencemaran (§2.2–2.3).</div></div><div style="flex:1; min-width:150px; background:#fff; border:1px solid var(--line); border-top:4px solid #0e8388; border-radius:12px; padding:14px 14px 15px;"><div style="width:34px; height:34px; border-radius:9px; background:#0e8388; color:#fff; display:flex; align-items:center; justify-content:center; font:800 14px/1 'Mulish'; margin-bottom:9px;">T</div><div style="font:800 13.5px/1.1 'Mulish'; color:#0e8388; margin-bottom:5px;">Teknologi</div><div style="font-size:12px; line-height:1.5; color:var(--body);">Alat ukur kualitas air: pH meter, TDS meter, turbidimeter (Gambar 2.1).</div></div><div style="flex:1; min-width:150px; background:#fff; border:1px solid var(--line); border-top:4px solid #c47f22; border-radius:12px; padding:14px 14px 15px;"><div style="width:34px; height:34px; border-radius:9px; background:#c47f22; color:#fff; display:flex; align-items:center; justify-content:center; font:800 14px/1 'Mulish'; margin-bottom:9px;">E</div><div style="font:800 13.5px/1.1 'Mulish'; color:#c47f22; margin-bottom:5px;">Rekayasa</div><div style="font-size:12px; line-height:1.5; color:var(--body);">Data pengukuran menjadi dasar merumuskan spesifikasi solusi rekayasa (§2.5).</div></div><div style="flex:1; min-width:150px; background:#fff; border:1px solid var(--line); border-top:4px solid #375a97; border-radius:12px; padding:14px 14px 15px;"><div style="width:34px; height:34px; border-radius:9px; background:#375a97; color:#fff; display:flex; align-items:center; justify-content:center; font:800 14px/1 'Mulish'; margin-bottom:9px;">M</div><div style="font:800 13.5px/1.1 'Mulish'; color:#375a97; margin-bottom:5px;">Matematika</div><div style="font-size:12px; line-height:1.5; color:var(--body);">Menghitung %penyimpangan terhadap baku mutu (Persamaan 2.1).</div></div><div style="flex:1; min-width:150px; background:#fff; border:1px solid var(--line); border-top:4px solid #2f8f5b; border-radius:12px; padding:14px 14px 15px;"><div style="width:34px; height:34px; border-radius:9px; background:#2f8f5b; color:#fff; display:flex; align-items:center; justify-content:center; font:800 14px/1 'Mulish'; margin-bottom:9px;">ESD</div><div style="font:800 13.5px/1.1 'Mulish'; color:#2f8f5b; margin-bottom:5px;">Keberlanjutan</div><div style="font-size:12px; line-height:1.5; color:var(--body);">Baku mutu lingkungan &amp; dampak pencemaran bagi masyarakat (§2.4).</div></div>
+          </div>
+        </div>
+
+        <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:var(--aqua); margin-bottom:10px;">Studi Kasus Dunia Nyata</div>
+          <p style="margin:0 0 10px;"><b>Laporan laboratorium sampel Sungai Muara.</b> Sebuah tim mahasiswa mengambil sampel air di tiga titik: hulu, dekat pemukiman, dan dekat pembuangan pabrik. Hasil uji laboratorium disajikan pada tabel berikut. Angka-angka itu awalnya "diam". Tugas Anda membuatnya "berbicara".</p>
+          <div style="overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:#fff;">
+            <table style="width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px;">
+              <thead><tr style="background:#0c2a30; color:#fff; text-align:left;"><th style="padding:9px 12px;">Parameter</th><th style="padding:9px 12px;">Hulu</th><th style="padding:9px 12px;">Pemukiman</th><th style="padding:9px 12px;">Dekat Pabrik</th><th style="padding:9px 12px;">Baku Mutu*</th></tr></thead>
+              <tbody>
+                <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px;">pH</td><td style="padding:8px 12px;">7,1</td><td style="padding:8px 12px;">6,4</td><td style="padding:8px 12px; color:var(--coral); font-weight:700;">4,8</td><td style="padding:8px 12px;">6–9</td></tr>
+                <tr style="border-top:1px solid var(--line); background:#f7fbfa;"><td style="padding:8px 12px;">Kekeruhan (NTU)</td><td style="padding:8px 12px;">12</td><td style="padding:8px 12px;">88</td><td style="padding:8px 12px; color:var(--coral); font-weight:700;">240</td><td style="padding:8px 12px;">≤ 25</td></tr>
+                <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px;">TSS (mg/L)</td><td style="padding:8px 12px;">18</td><td style="padding:8px 12px;">120</td><td style="padding:8px 12px; color:var(--coral); font-weight:700;">310</td><td style="padding:8px 12px;">≤ 50</td></tr>
+                <tr style="border-top:1px solid var(--line); background:#f7fbfa;"><td style="padding:8px 12px;">TDS (mg/L)</td><td style="padding:8px 12px;">210</td><td style="padding:8px 12px;">540</td><td style="padding:8px 12px;">870</td><td style="padding:8px 12px;">≤ 1000</td></tr>
+                <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px;">DO (mg/L)</td><td style="padding:8px 12px;">6,8</td><td style="padding:8px 12px;">3,9</td><td style="padding:8px 12px; color:var(--coral); font-weight:700;">1,6</td><td style="padding:8px 12px;">≥ 4</td></tr>
+                <tr style="border-top:1px solid var(--line); background:#f7fbfa;"><td style="padding:8px 12px;">COD (mg/L)</td><td style="padding:8px 12px;">14</td><td style="padding:8px 12px;">62</td><td style="padding:8px 12px; color:var(--coral); font-weight:700;">180</td><td style="padding:8px 12px;">≤ 25</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:11.5px; color:var(--muted); margin:8px 0 0;">*Nilai baku mutu bersifat ilustratif untuk latihan; gunakan regulasi resmi (mis. PP No. 22/2021) saat menganalisis data nyata. <b>Tabel 2.1</b></p>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0 8px;">
+          <figure style="margin:0;">
+            <div style="aspect-ratio:4/3; border-radius:14px; overflow:hidden; background:#f4f8f7; border:1px solid var(--line);">
+              <img src="assets/gambar-2-1-pengambilan-sampel-air.png" alt="Proses pengambilan sampel air sungai di tiga lokasi (permukiman, pertanian, perkebunan) beserta pengukuran pH, suhu, TDS, dan kekeruhan serta penyimpanan sampel dalam cooler box" loading="lazy" style="width:100%; height:100%; object-fit:contain; display:block;">
+            </div>
+            <figcaption style="font-size:12.5px; color:var(--muted); margin-top:6px;"><b>Gambar 2.1</b> Pengambilan sampel air untuk diukur di tiga lokasi (permukiman, pertanian, perkebunan): proses sampling, pengukuran pH–suhu–TDS–kekeruhan, dan penyimpanan sampel berlabel dalam cooler box.</figcaption>
+          </figure>
+          <figure style="margin:0;">
+            <div data-yt-holder="" data-yt="0ETkyTaSsp4" style="aspect-ratio:4/3; border-radius:14px; overflow:hidden; position:relative; cursor:pointer; background:#0c2a30;">
+              <img src="https://img.youtube.com/vi/0ETkyTaSsp4/hqdefault.jpg" alt="Video pengukuran kualitas air" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+              <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.5));"></div>
+              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:60px; height:60px; border-radius:50%; background:rgba(224,38,34,.92); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(0,0,0,.35);"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"></path></svg></div>
+              <div style="position:absolute; left:14px; bottom:12px; right:14px; color:#fff; font-weight:700; font-size:13.5px; text-shadow:0 1px 4px rgba(0,0,0,.5);">Video: Kualitas &amp; Pencemaran Air</div>
+            </div>
+            <figcaption style="font-size:12.5px; color:var(--muted); margin-top:6px;"><b>Video 2.1</b> Pemantik: analisis kualitas air tercemar (klik untuk memutar). <a href="https://www.youtube.com/watch?v=0ETkyTaSsp4" target="_blank" rel="noopener" style="color:var(--teal); font-weight:600;">Buka di YouTube ↗</a></figcaption>
+          </figure>
+        </div>
+
+        <div style="background:#fef7ea; border:1px solid #f2e0bd; border-left:4px solid var(--amber); border-radius:14px; padding:20px 22px; margin:22px 0;">
+          <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:var(--amber); margin-bottom:10px;">Ayo Berpikir — Diskusi Interaktif</div>
+          <p style="margin:0 0 8px;">Lihat kembali Tabel 2.1 (sebelum membaca konsep):</p>
+          <ol style="margin:0 0 12px; padding-left:20px; font-size:14.5px;">
+            <li>Titik mana yang paling tercemar? Parameter apa yang menjadi bukti terkuat?</li>
+            <li>Mengapa nilai DO justru <i>turun</i> saat pencemaran naik? Apa dugaan Anda?</li>
+          </ol>
+          <textarea data-note="b2-berpikir" placeholder="Tulis analisis awal Anda…" style="width:100%; min-height:90px; resize:vertical; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:inherit; font-size:14.5px; background:#fff; color:var(--body);"></textarea>
+        </div>
+
+        <div style="background:#f7f3fc; border:1px solid #ddd0ee; border-left:4px solid var(--violet); border-radius:14px; padding:20px 22px; margin:22px 0;">
+          <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:var(--violet); margin-bottom:10px;">Sintaks PjBL · Fase 3 — Perencanaan Proyek</div>
+          <p style="margin:0 0 8px;">Perbarui rencana proyek kelompok Anda: tentukan <b>sumber air</b> (sungai/parit/selokan) yang akan dijadikan objek uji sepanjang proyek, serta <b>parameter kualitas air</b> apa saja yang akan diukur sebelum &amp; sesudah perlakuan.</p>
+          <textarea data-note="b2-plan" placeholder="Rencana proyek kelompok kami…" style="width:100%; min-height:80px; resize:vertical; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:inherit; font-size:14.5px; background:#fff; color:var(--body);"></textarea>
+        </div>
+
+
+        <div style="background:#e9f6f0; border:1px solid #c4e6d5; border-left:4px solid var(--teal); border-radius:14px; padding:20px 22px; margin:22px 0;">
+          <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:var(--teal); margin-bottom:10px;">Aktivitas Mahasiswa — LKM 2: Fishbone Akar Masalah</div>
+          <p style="margin:0 0 10px;">Gunakan diagram <b>tulang ikan (Ishikawa)</b> untuk memetakan akar masalah pencemaran di titik "Dekat Pabrik". Kepala ikan = "Air tidak layak pakai". Duri utama = kategori penyebab.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:8px; margin-bottom:12px;">
+            <div style="background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px; font-size:12.5px;"><b>Manusia</b><br>kebiasaan buang limbah</div>
+            <div style="background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px; font-size:12.5px;"><b>Mesin/Industri</b><br>buangan proses</div>
+            <div style="background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px; font-size:12.5px;"><b>Material</b><br>bahan kimia, sedimen</div>
+            <div style="background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px; font-size:12.5px;"><b>Lingkungan</b><br>curah hujan, erosi</div>
+            <div style="background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px; font-size:12.5px;"><b>Kebijakan</b><br>pengawasan lemah</div>
+          </div>
+          <textarea data-note="b2-lkm" placeholder="Tuliskan akar masalah per kategori…" style="width:100%; min-height:100px; resize:vertical; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:inherit; font-size:14.5px; background:#fff; color:var(--body);"></textarea>
+        </div>
+
+        <h3 style="font-family:'Newsreader',serif; font-weight:600; font-size:27px; color:var(--ink); margin:36px 0 4px;">Konsep Inti</h3>
+        <div style="height:3px; width:56px; background:var(--teal); border-radius:2px; margin-bottom:18px;"></div>
+
+        <h4 style="font-family:'Newsreader',serif; font-size:21px; color:var(--ink); margin:24px 0 8px;">2.1 Dari Keruh ke Data: Mengapa Air Perlu Diukur</h4>
+        <p>Mata kita menipu. Air bisa tampak jernih tetapi mengandung logam terlarut; bisa tampak keruh tetapi hanya berisi sedimen tak berbahaya. Karena itu, kualitas air dinyatakan lewat <b>parameter terukur</b>, bukan kesan. Mengukur adalah langkah pertama <i>Problem Identification</i>: tanpa data, kita hanya menebak.</p>
+
+        <h4 style="font-family:'Newsreader',serif; font-size:21px; color:var(--ink); margin:24px 0 8px;">2.2 Parameter Fisik: Kekeruhan, TSS, TDS, Suhu, Konduktivitas</h4>
+        <ul style="font-size:15px; padding-left:20px;">
+          <li><b>Kekeruhan (NTU)</b> — ukuran hamburan cahaya oleh partikel tersuspensi; makin keruh, makin besar NTU.</li>
+          <li><b>TSS</b> (Total Suspended Solids) — massa padatan tersuspensi per liter (mg/L); inilah target utama elektrokoagulasi.</li>
+          <li><b>TDS</b> (Total Dissolved Solids) — padatan terlarut; berhubungan erat dengan konduktivitas.</li>
+          <li><b>Konduktivitas</b> (µS/cm) — kemampuan air menghantar listrik; makin banyak ion, makin tinggi. Penting untuk efisiensi elektrokoagulasi (Bab 3).</li>
+        </ul>
+
+        <h4 style="font-family:'Newsreader',serif; font-size:21px; color:var(--ink); margin:24px 0 8px;">2.3 Parameter Kimia: pH, DO, BOD, COD</h4>
+        <ul style="font-size:15px; padding-left:20px;">
+          <li><b>pH</b> — derajat keasaman; memengaruhi jenis koagulan yang terbentuk (Bab 4).</li>
+          <li><b>DO</b> (Dissolved Oxygen) — oksigen terlarut; rendah menandakan pencemaran organik tinggi.</li>
+          <li><b>BOD/COD</b> — kebutuhan oksigen biologis/kimiawi untuk menguraikan bahan organik; makin tinggi, makin tercemar.</li>
+        </ul>
+        <div style="background:#f0f9f3; border:1px solid #cbe8d5; border-radius:12px; padding:14px 18px; margin:12px 0;"><b style="color:var(--green);">Mengapa DO turun saat pencemaran naik?</b> Bakteri mengurai bahan organik dan mengonsumsi oksigen terlarut. Makin banyak limbah organik → makin sibuk bakteri → DO makin rendah. Inilah jawaban "Ayo Berpikir" no. 2.</div>
+
+        <h4 style="font-family:'Newsreader',serif; font-size:21px; color:var(--ink); margin:24px 0 8px;">2.4 Baku Mutu Air dan Membaca Penyimpangan</h4>
+        <p>Baku mutu adalah <b>ambang</b> yang ditetapkan regulasi. Sebuah nilai dinyatakan menyimpang bila melampaui (atau, untuk DO, di bawah) ambang. Besarnya penyimpangan dapat dihitung sebagai persentase terhadap baku mutu.</p>
+
+        <div style="background:#0c2b31; color:#eafaf7; border-radius:12px; padding:16px 20px; margin:14px 0;">
+          <div style="font:700 11px/1 'Mulish'; letter-spacing:.1em; color:#7fd8cf; margin-bottom:8px;">RUMUS (2.1) — PENYIMPANGAN TERHADAP BAKU MUTU</div>
+          <div style="font-size:18px;">\[ \%\text{Penyimpangan} = \frac{X_{ukur} - X_{baku}}{X_{baku}} \times 100\% \]</div>
+          <div style="font-size:13px; color:#bfe6e0; margin-top:8px;">dengan \(X_{ukur}\) = nilai terukur, \(X_{baku}\) = nilai baku mutu. Hasil positif berarti melebihi ambang.</div>
+        </div>
+
+        <div style="background:#f7fbfa; border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin:14px 0;">
+          <div style="font:700 12px/1 'Mulish'; color:var(--teal-d); margin-bottom:8px;">Contoh Hitungan 2.1</div>
+          <p style="margin:0 0 6px; font-size:14.5px;">Kekeruhan titik "Dekat Pabrik" = 240 NTU, baku mutu = 25 NTU. Berapa penyimpangannya?</p>
+          <div style="font-size:15px; margin:8px 0;">\[ \%\text{Penyimpangan} = \frac{240 - 25}{25}\times 100\% = 860\% \]</div>
+          <p style="margin:0; font-size:14px; color:var(--muted);">Artinya kekeruhan hampir <b>9,6 kali</b> ambang — pencemaran berat. Nilai sebesar ini menjadi argumen kuat perlunya intervensi (mis. elektrokoagulasi).</p>
+        </div>
+
+        <h4 style="font-family:'Newsreader',serif; font-size:21px; color:var(--ink); margin:24px 0 8px;">2.5 Identifikasi Akar Masalah &amp; Kaitan Kurikulum</h4>
+        <p><b>Problem Identification</b> yang baik memisahkan <i>gejala</i> (air keruh) dari <i>akar</i> (buangan proses pabrik tanpa pengolahan). Bagi calon guru, data seperti Tabel 2.1 adalah bahan ajar emas: pengukuran menyentuh <i>besaran &amp; pengukuran, listrik, dan energi</i> dalam kurikulum fisika SMA, sekaligus melatih literasi data siswa.</p>
+
+        <div style="background:#f4effa; border:1px solid #ddd0ee; border-left:4px solid var(--violet); border-radius:14px; padding:20px 22px; margin:24px 0;">
+          <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:var(--violet); margin-bottom:10px;">Tantangan CPSS · Problem Identification</div>
+          <p style="margin:0 0 8px;">Rumuskan <b>pernyataan masalah</b> (problem statement) untuk kasus Sungai Muara dalam format: "Diketahui …, sehingga …, padahal seharusnya …, maka masalahnya adalah …". Gunakan minimal 3 data dari Tabel 2.1.</p>
+          <textarea data-note="b2-cpss" placeholder="Pernyataan masalah saya…" style="width:100%; min-height:88px; resize:vertical; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:inherit; font-size:14.5px; background:#fff; color:var(--body);"></textarea>
+        </div>
+
+        <div style="background:#eef2fb; border:1px solid #cdd8ef; border-left:4px solid var(--indigo); border-radius:14px; padding:20px 22px; margin:24px 0;">
+          <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:var(--indigo); margin-bottom:10px;">Teacher Candidate Corner · PCK (Curriculum Knowledge)</div>
+          <p style="margin:0 0 8px;">Petakan: parameter air mana yang dapat Anda jadikan konteks untuk <b>Kompetensi Dasar fisika SMA</b> tentang pengukuran &amp; listrik dinamis? Tulis satu contoh keterkaitan KD ↔ parameter ↔ aktivitas siswa.</p>
+          <textarea data-note="b2-pck" placeholder="KD … ↔ parameter … ↔ aktivitas …" style="width:100%; min-height:76px; resize:vertical; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:inherit; font-size:14.5px; background:#fff; color:var(--body);"></textarea>
+        </div>
+
+        <div style="background:#ecf7ef; border:1px solid #c8e6d1; border-left:4px solid var(--green); border-radius:14px; padding:20px 22px; margin:24px 0;">
+          <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:var(--green); margin-bottom:10px;">Green Note · EA</div>
+          <p style="margin:0;">Data pencemaran bukan sekadar angka ujian — ia menggambarkan risiko kesehatan warga nyata. Membiasakan diri membaca data lingkungan secara kritis adalah bentuk <b>pengetahuan isu lingkungan</b> yang menjadi fondasi kepedulian.</p>
+        </div>
+
+        <div style="background:#fbefec; border:1px solid #f1cfc6; border-left:4px solid var(--coral); border-radius:14px; padding:20px 22px; margin:24px 0;">
+          <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:var(--coral); margin-bottom:10px;">Miskonsepsi yang Perlu Diwaspadai</div>
+          <ul style="margin:0; padding-left:20px; font-size:14.5px;">
+            <li><b>"TDS tinggi = pasti berbahaya."</b> Tidak selalu; TDS mengukur total padatan terlarut, sebagian berupa mineral tak berbahaya. Perlu dilihat komposisinya.</li>
+            <li><b>"DO tinggi = tercemar."</b> Terbalik; DO tinggi umumnya menandakan air sehat, DO rendah menandakan pencemaran organik.</li>
+          </ul>
+        </div>
+
+        <div style="background:#fdf8ec; border:1px solid #f0e3bf; border-left:4px solid #b8860b; border-radius:14px; padding:20px 22px; margin:22px 0;">
+          <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:#b8860b; margin-bottom:10px;">Sintaks PjBL · Fase 5 — Monitoring &amp; Revisi</div>
+          <p style="margin:0 0 6px;">Beri tanda ✓ pada hal yang sudah Anda kuasai/lakukan pertemuan ini:</p>
+          <div style="display:flex; flex-direction:column; gap:6px; margin:8px 0 10px; font-size:14px;"><label style="display:flex; gap:8px; align-items:flex-start; cursor:pointer;"><input type="checkbox" style="margin-top:3px;">Menjelaskan 8 parameter kualitas air (kekeruhan, TSS, TDS, pH, DO, dst.)</label><label style="display:flex; gap:8px; align-items:flex-start; cursor:pointer;"><input type="checkbox" style="margin-top:3px;">Menghitung %penyimpangan terhadap baku mutu</label><label style="display:flex; gap:8px; align-items:flex-start; cursor:pointer;"><input type="checkbox" style="margin-top:3px;">Membedakan gejala vs. akar masalah pencemaran</label><label style="display:flex; gap:8px; align-items:flex-start; cursor:pointer;"><input type="checkbox" style="margin-top:3px;">Mengaitkan data air dengan Kompetensi Dasar fisika SMA</label></div>
+          <textarea data-note="b2-monitor" placeholder="Catatan revisi/kendala yang perlu ditindaklanjuti…" style="width:100%; min-height:64px; resize:vertical; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:inherit; font-size:14.5px; background:#fff; color:var(--body);"></textarea>
+        </div>
+
+        <div style="background:#eef2fb; border:1px solid #cdd8ef; border-left:4px solid var(--indigo); border-radius:14px; padding:20px 22px; margin:22px 0;">
+          <div style="font:700 12px/1 'Mulish'; letter-spacing:.1em; text-transform:uppercase; color:var(--indigo); margin-bottom:10px;">Sintaks PjBL · Fase 6 — Presentasi Hasil</div>
+          <p style="margin:0 0 8px;">Presentasikan hasil <b>diagram fishbone (LKM 2)</b> kelompok Anda ke kelompok lain; bandingkan akar masalah yang teridentifikasi.</p>
+          <textarea data-note="b2-share" placeholder="Masukan yang saya terima dari kelompok lain…" style="width:100%; min-height:64px; resize:vertical; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:inherit; font-size:14.5px; background:#fff; color:var(--body);"></textarea>
+        </div>
+
+        <div style="background:#0c2a30; color:#dbeee9; border-radius:16px; padding:24px 26px; margin:28px 0;">
+          <div style="font:700 12px/1 'Mulish'; letter-spacing:.14em; text-transform:uppercase; color:#7fd8cf; margin-bottom:12px;">Rangkuman Bab 2</div>
+          <ul style="margin:0; padding-left:20px; font-size:14.5px; line-height:1.9;">
+            <li>Kualitas air dinyatakan lewat <b>parameter terukur</b> (fisik &amp; kimia), bukan kesan mata.</li>
+            <li>Parameter kunci: kekeruhan, TSS, TDS, konduktivitas, pH, DO, BOD, COD.</li>
+            <li>Penyimpangan dihitung terhadap <b>baku mutu</b> (Persamaan 2.1).</li>
+            <li><b>Problem Identification</b> memisahkan gejala dari akar masalah.</li>
+            <li>Data air menautkan isu lingkungan dengan kurikulum fisika (PCK) &amp; kepedulian (EA).</li>
+          </ul>
+        </div>
+
+        <h3 style="font-family:'Newsreader',serif; font-weight:600; font-size:24px; color:var(--ink); margin:30px 0 4px;">Evaluasi Bab 2</h3>
+        <div style="height:3px; width:56px; background:var(--amber); border-radius:2px; margin-bottom:16px;"></div>
+
+        <div data-quiz="" style="background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin:14px 0;">
+          <p style="margin:0 0 12px; font-weight:600;">1. <span style="color:var(--aqua); font-size:12px; font-weight:700;">(Konsep)</span> Parameter yang paling langsung menjadi target penurunan oleh elektrokoagulasi adalah…</p>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <button data-opt="" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>A. TDS &amp; konduktivitas</button>
+            <button data-opt="" data-correct="1" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>B. Kekeruhan &amp; TSS</button>
+            <button data-opt="" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>C. Suhu</button>
+            <button data-opt="" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>D. pH saja</button>
+          </div>
+          <div data-feedback="" data-fb-correct="Benar." data-expl="Elektrokoagulasi menggumpalkan partikel tersuspensi → kekeruhan (NTU) dan TSS turun signifikan." style="display:none; margin-top:12px; padding:11px 14px; border:1px solid; border-radius:10px; font-size:13.5px;"></div>
+        </div>
+
+        <div data-quiz="" style="background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin:14px 0;">
+          <p style="margin:0 0 12px; font-weight:600;">2. <span style="color:var(--teal); font-size:12px; font-weight:700;">(Hitungan)</span> TSS terukur 310 mg/L, baku mutu 50 mg/L. Penyimpangannya…</p>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <button data-opt="" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>A. 260%</button>
+            <button data-opt="" data-correct="1" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>B. 520%</button>
+            <button data-opt="" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>C. 620%</button>
+            <button data-opt="" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>D. 6,2%</button>
+          </div>
+          <div data-feedback="" data-fb-correct="Benar." data-expl="(310−50)/50 × 100% = 260/50 × 100% = 520%." style="display:none; margin-top:12px; padding:11px 14px; border:1px solid; border-radius:10px; font-size:13.5px;"></div>
+        </div>
+
+        <div data-quiz="" style="background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin:14px 0;">
+          <p style="margin:0 0 12px; font-weight:600;">3. <span style="color:var(--green); font-size:12px; font-weight:700;">(EA/Konsep)</span> Nilai DO yang rendah pada air paling tepat ditafsirkan sebagai…</p>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <button data-opt="" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>A. Air sangat sehat</button>
+            <button data-opt="" data-correct="1" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>B. Indikasi beban pencemaran organik tinggi</button>
+            <button data-opt="" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>C. Kadar mineral tinggi</button>
+            <button data-opt="" style="text-align:left; padding:11px 14px; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-family:inherit; font-size:14.5px; color:var(--body);"><span data-mark="" style="display:inline-block; width:18px; font-weight:800;"></span>D. Air terlalu jernih</button>
+          </div>
+          <div data-feedback="" data-fb-correct="Benar." data-expl="Bahan organik dikonsumsi mikroba yang memakai oksigen terlarut, sehingga DO turun." style="display:none; margin-top:12px; padding:11px 14px; border:1px solid; border-radius:10px; font-size:13.5px;"></div>
+        </div>
+
+        <div style="background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin:14px 0;">
+          <p style="margin:0 0 6px; font-weight:600;">Esai 1. <span style="color:var(--violet); font-size:12px; font-weight:700;">(CPSS–Problem Identification)</span></p>
+          <p style="margin:0 0 10px;">Berdasarkan Tabel 2.1, susun tiga akar masalah utama pencemaran di titik "Dekat Pabrik" dan urutkan berdasarkan prioritas penanganan. Beri alasan berbasis data.</p>
+          <textarea data-note="b2-esai1" data-gate-essay="" placeholder="Jawaban esai Anda…" style="width:100%; min-height:88px; resize:vertical; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:inherit; font-size:14.5px; background:#fbfdfc; color:var(--body);"></textarea>
+        </div>
+        <div style="background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin:14px 0;">
+          <p style="margin:0 0 6px; font-weight:600;">Esai 2. <span style="color:var(--indigo); font-size:12px; font-weight:700;">(PCK)</span></p>
+          <p style="margin:0 0 10px;">Rancang satu aktivitas praktikum sederhana bagi siswa SMA untuk mengukur salah satu parameter air, dan jelaskan konsep fisika apa yang dilatih melalui aktivitas itu.</p>
+          <textarea data-note="b2-esai2" data-gate-essay="" placeholder="Jawaban esai Anda…" style="width:100%; min-height:88px; resize:vertical; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-family:inherit; font-size:14.5px; background:#fbfdfc; color:var(--body);"></textarea>
+        </div>
+
+        <div style="margin-top:8px;">
+          <button data-reveal="b2-kunci" data-gate="1" data-label-show="▸ Tampilkan Pedoman Jawaban" data-label-hide="▾ Sembunyikan Pedoman Jawaban" disabled="" style="padding:10px 18px; border:1px solid var(--line); border-radius:10px; background:#f0f2f1; color:#9aa5a3; font-weight:700; font-family:inherit; font-size:13.5px; cursor:not-allowed; opacity:.75;"><span data-lbl="">🔒 Tampilkan Pedoman Jawaban</span></button>
+          <div data-gate-hint="1" style="margin-top:7px; font-size:12px; color:var(--amber);">Jawab semua soal (3 objektif + 2 esai) dahulu untuk membuka pedoman jawaban. (0/5 terjawab)</div>
+        </div>
+        <div id="b2-kunci" data-open="0" style="display:none; margin-top:12px; background:#f5faf8; border:1px dashed var(--teal); border-radius:12px; padding:16px 18px; font-size:14px;">
+          <p style="margin:0 0 6px;"><b>Objektif:</b> 1-B, 2-B, 3-B.</p>
+          <p style="margin:0 0 6px;"><b>Esai 1:</b> Akar masalah misalnya: (1) buangan proses pabrik → COD 180 &amp; TSS 310 sangat tinggi; (2) beban organik → DO 1,6 rendah; (3) keasaman → pH 4,8 di bawah ambang. Prioritas berdasar risiko kesehatan &amp; besar penyimpangan.</p>
+          <p style="margin:0;"><b>Esai 2:</b> Nilai ketepatan konsep fisika (mis. pengukuran, hantaran listrik untuk konduktivitas/TDS), kelayakan aktivitas, dan kejelasan kaitan konsep-praktik.</p>
+        </div>
+
+        <h3 style="font-family:'Newsreader',serif; font-weight:600; font-size:20px; color:var(--ink); margin:30px 0 10px;">Referensi Utama Bab 2</h3>
+        <ol style="font-size:13px; color:var(--body); line-height:1.7; padding-left:22px; margin:0;">
+          <li>Bharti, N., &amp; Katyal, D. (2011). Water quality indices used for surface water vulnerability assessment. <i>International Journal of Environmental Sciences, 2</i>(1), 154–173.</li>
+          <li>Chapman, D. V. (Ed.). (1996). <i>Water quality assessments</i> (2nd ed.). UNESCO/WHO/UNEP; E&amp;FN Spon.</li>
+          <li>Boyd, C. E. (2020). <i>Water quality: An introduction</i> (3rd ed.). Springer. https://doi.org/10.1007/978-3-030-23335-8</li>
+          <li>Treffinger, D. J., Isaksen, S. G., &amp; Stead-Dorval, K. B. (2003). <i>Creative problem solving: An introduction</i> (4th ed.). Prufrock Press.</li>
+          <li>Shulman, L. S. (1986). Those who understand: Knowledge growth in teaching. <i>Educational Researcher, 15</i>(2), 4–14. https://doi.org/10.3102/0013189X015002004</li>
+          <li>Emamjomeh, M. M., &amp; Sivakumar, M. (2009). Review of pollutants removed by electrocoagulation and electrocoagulation/flotation processes. <i>Journal of Environmental Management, 90</i>(5), 1663–1679. https://doi.org/10.1016/j.jenvman.2008.12.011</li>
+        </ol>
+      </section>
+
+      
+
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin:26px 0 6px; flex-wrap:wrap;">
+        <a href="Bab%201.dc.html" style="display:flex; align-items:center; gap:6px; padding:10px 16px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--teal-d); text-decoration:none; font-weight:700; font-size:13.5px;">← Bab 1 · Orientasi & Krisis Air</a>
+        <a href="Buku%20Ajar%20Elektrokoagulasi%20STEM-ESD.dc.html#alur" style="font-size:12.5px; color:var(--muted); text-decoration:none;">Daftar Isi</a>
+        <a href="Bab%203.dc.html" style="display:flex; align-items:center; gap:6px; padding:10px 16px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--teal-d); text-decoration:none; font-weight:700; font-size:13.5px;">Bab 3 · Kelistrikan & Elektromagnetik →</a>
+      </div>
+
+      
+
+    </article>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._boot();
+  }
+  _boot() {
+    this.DOSEN_PASS = 'dosen2024';
+    this.buildNoteLabels();
+    this.wireAuth();
+    this.initSession();
+    this.setupMath();
+    this.bindAnswers();
+    this.wireClicks();
+    this.wireToc();
+  }
+  setupMath() {
+    let tries = 0;
+    const run = () => {
+      if (window.renderMathInElement) {
+        try {
+          window.renderMathInElement(document.getElementById('bookRoot') || document.body, {
+            delimiters: [
+              { left: '\\[', right: '\\]', display: true },
+              { left: '\\(', right: '\\)', display: false }
+            ],
+            throwOnError: false,
+            trust: true
+          });
+        } catch (e) {}
+      } else if (tries++ < 60) {
+        setTimeout(run, 120);
+      }
+    };
+    run();
+  }
+  // ---------- SESSION ----------
+  cu() {
+    try { return JSON.parse(localStorage.getItem('ecbook:session') || 'null'); } catch (e) { return null; }
+  }
+  aKey(id) { const u = this.cu(); return 'ecbook:ans:' + (u ? u.nim : 'GUEST') + ':' + id; }
+  rKey(name) { const u = this.cu(); return 'ecbook:ansr:' + (u ? u.nim : 'GUEST') + ':' + name; }
+
+  buildNoteLabels() {
+    this.noteLabels = {};
+    document.querySelectorAll('textarea[data-note]').forEach((t) => {
+      const id = t.getAttribute('data-note');
+      let label = '';
+      let node = t.previousElementSibling;
+      while (node) { const tx = (node.innerText || '').trim(); if (tx) { label = tx; break; } node = node.previousElementSibling; }
+      if (!label) { const c = t.closest('div,li'); if (c) label = (c.innerText || '').trim(); }
+      const chap = t.closest('[data-chapter]');
+      const chapId = chap ? (chap.getAttribute('data-screen-label') || chap.id) : (t.closest('[id]') ? t.closest('[id]').id : '');
+      this.noteLabels[id] = { label: label.replace(/\s+/g, ' ').slice(0, 150) || id, chap: chapId };
+    });
+  }
+
+  checkGateComplete() {
+    const quizzes = document.querySelectorAll('[data-quiz]');
+    const answeredQuiz = [...quizzes].filter((q) => q.getAttribute('data-answered') === '1').length;
+    const essays = document.querySelectorAll('[data-gate-essay]');
+    const answeredEssay = [...essays].filter((t) => t.value && t.value.trim().length > 0).length;
+    return { total: quizzes.length + essays.length, answered: answeredQuiz + answeredEssay };
+  }
+  updateGate() {
+    const btn = document.querySelector('[data-gate]');
+    if (!btn) return;
+    const { total, answered } = this.checkGateComplete();
+    const hint = document.querySelector('[data-gate-hint]');
+    const lbl = btn.querySelector('[data-lbl]');
+    if (total > 0 && answered >= total) {
+      btn.disabled = false;
+      btn.style.background = '#fff'; btn.style.color = 'var(--teal-d)'; btn.style.cursor = 'pointer'; btn.style.opacity = '1';
+      if (lbl) lbl.textContent = btn.getAttribute('data-label-show');
+      if (hint) hint.style.display = 'none';
+    } else {
+      btn.disabled = true;
+      btn.style.background = '#f0f2f1'; btn.style.color = '#9aa5a3'; btn.style.cursor = 'not-allowed'; btn.style.opacity = '.75';
+      if (lbl) lbl.textContent = '\ud83d\udd12 Tampilkan Pedoman Jawaban';
+      if (hint) { hint.style.display = 'block'; hint.textContent = 'Jawab semua soal (3 objektif + 2 esai) dahulu untuk membuka pedoman jawaban. (' + answered + '/' + total + ' terjawab)'; }
+    }
+  }
+  bindAnswers() {
+    document.querySelectorAll('textarea[data-note]').forEach((t) => {
+      t.addEventListener('input', () => {
+        const u = this.cu(); if (!u) return;
+        try { localStorage.setItem(this.aKey(t.getAttribute('data-note')), t.value); this.touch(u); } catch (e) {}
+        if (t.hasAttribute('data-gate-essay')) this.updateGate();
+      });
+    });
+    document.querySelectorAll('input[type="radio"][data-persist]').forEach((r) => {
+      r.addEventListener('change', () => {
+        const u = this.cu(); if (!u) return;
+        try { localStorage.setItem(this.rKey(r.name), r.value); this.touch(u); } catch (e) {}
+      });
+    });
+  }
+
+  loadAnswers() {
+    document.querySelectorAll('textarea[data-note]').forEach((t) => {
+      try { const v = localStorage.getItem(this.aKey(t.getAttribute('data-note'))); t.value = v != null ? v : ''; } catch (e) {}
+    });
+    this.updateGate();
+    document.querySelectorAll('input[type="radio"][data-persist]').forEach((r) => {
+      try { r.checked = localStorage.getItem(this.rKey(r.name)) === r.value; } catch (e) {}
+    });
+  }
+
+  touch(u) {
+    if (!u || u.role !== 'mhs') return;
+    try {
+      const reg = JSON.parse(localStorage.getItem('ecbook:students') || '{}');
+      reg[u.nim] = { name: u.name, kelas: u.kelas || '', updated: Date.now() };
+      localStorage.setItem('ecbook:students', JSON.stringify(reg));
+    } catch (e) {}
+  }
+
+  initSession() {
+    const u = this.cu();
+    if (u) { this.applyAuth(u); } else { this.showGate(); }
+  }
+
+  applyAuth(u) {
+    const gate = document.getElementById('authGate');
+    if (gate) gate.style.display = 'none';
+    const pill = document.getElementById('userPill');
+    if (pill) {
+      pill.style.display = 'flex';
+      document.getElementById('pillName').textContent = u.name + (u.role === 'mhs' && u.nim ? ' · ' + u.nim : '');
+      const role = document.getElementById('pillRole');
+      role.textContent = u.role === 'dosen' ? 'Dosen' : 'Mahasiswa';
+      role.style.background = u.role === 'dosen' ? '#e7edf8' : '#eef6f4';
+      role.style.color = u.role === 'dosen' ? '#375a97' : '#0a5a5d';
+      document.getElementById('pillDash').style.display = u.role === 'dosen' ? 'flex' : 'none';
+      document.getElementById('pillCollect').style.display = u.role === 'mhs' ? 'flex' : 'none';
+    }
+    if (u.role === 'mhs') this.touch(u);
+    this.loadAnswers();
+  }
+
+  showGate() { const g = document.getElementById('authGate'); if (g) g.style.display = 'block'; }
+
+  wireAuth() {
+    const setTab = (which) => {
+      const m = which === 'mhs';
+      document.getElementById('formMhs').style.display = m ? 'block' : 'none';
+      document.getElementById('formDosen').style.display = m ? 'none' : 'block';
+      const tm = document.getElementById('tabMhs'), td = document.getElementById('tabDosen');
+      tm.style.background = m ? '#eef6f4' : '#f4f8f7'; tm.style.color = m ? '#0a5a5d' : '#5f7d80'; tm.style.fontWeight = m ? '800' : '700';
+      td.style.background = !m ? '#e7edf8' : '#f4f8f7'; td.style.color = !m ? '#375a97' : '#5f7d80'; td.style.fontWeight = !m ? '800' : '700';
+    };
+    document.getElementById('bookRoot').addEventListener('click', (e) => {
+      const tab = e.target.closest('[data-auth-tab]');
+      if (tab) { setTab(tab.getAttribute('data-auth-tab')); return; }
+      const login = e.target.closest('[data-auth-login]');
+      if (login) { this.doLogin(login.getAttribute('data-auth-login')); return; }
+      if (e.target.closest('#pillLogout')) { this.logout(); return; }
+      if (e.target.closest('#pillDash')) { this.openDash(); return; }
+      if (e.target.closest('#pillCollect')) { const u = this.cu(); if (u) this.exportOne(u.nim); return; }
+      if (e.target.closest('#dashClose')) { document.getElementById('dashModal').style.display = 'none'; return; }
+      if (e.target.closest('#dashRefresh')) { this.renderDash(); return; }
+      if (e.target.closest('#dashCsv')) { this.exportCsv(); return; }
+      if (e.target.closest('#dashClearAll')) { this.delAll(); return; }
+      const del = e.target.closest('[data-dash-del]'); if (del) { this.delStudent(del.getAttribute('data-dash-del')); return; }
+      const back = e.target.closest('[data-dash-back]'); if (back) { this.renderDash(); return; }
+      const view = e.target.closest('[data-dash-view]'); if (view) { this.viewStudent(view.getAttribute('data-dash-view')); return; }
+      const exp = e.target.closest('[data-dash-export]'); if (exp) { this.exportOne(exp.getAttribute('data-dash-export')); return; }
+    });
+    const imp = document.getElementById('dashImport');
+    if (imp) imp.addEventListener('change', (e) => this.importFiles(e.target.files));
+  }
+
+  doLogin(role) {
+    if (role === 'mhs') {
+      const name = document.getElementById('mhsName').value.trim();
+      const nimRaw = document.getElementById('mhsNim').value.trim();
+      const kelas = document.getElementById('mhsKelas').value.trim();
+      const err = document.getElementById('mhsErr');
+      if (!name || !nimRaw) { err.textContent = 'Nama dan NIM wajib diisi.'; err.style.display = 'block'; return; }
+      const nim = nimRaw.replace(/[^A-Za-z0-9_-]/g, '');
+      if (!nim) { err.textContent = 'NIM hanya boleh huruf/angka.'; err.style.display = 'block'; return; }
+      err.style.display = 'none';
+      const u = { role: 'mhs', name, nim, kelas };
+      localStorage.setItem('ecbook:session', JSON.stringify(u));
+      this.applyAuth(u);
+    } else {
+      const name = document.getElementById('dosenName').value.trim() || 'Dosen';
+      const pass = document.getElementById('dosenPass').value;
+      const err = document.getElementById('dosenErr');
+      if (pass !== this.DOSEN_PASS) { err.textContent = 'Kata sandi salah.'; err.style.display = 'block'; return; }
+      err.style.display = 'none';
+      const u = { role: 'dosen', name, nim: 'DOSEN' };
+      localStorage.setItem('ecbook:session', JSON.stringify(u));
+      this.applyAuth(u);
+    }
+    window.scrollTo(0, 0);
+  }
+
+  logout() {
+    try { localStorage.removeItem('ecbook:session'); } catch (e) {}
+    document.getElementById('userPill').style.display = 'none';
+    document.getElementById('dashModal').style.display = 'none';
+    this.loadAnswers();
+    this.showGate();
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- MONITORING ----------
+  listStudents() {
+    const reg = (() => { try { return JSON.parse(localStorage.getItem('ecbook:students') || '{}'); } catch (e) { return {}; } })();
+    const nims = new Set(Object.keys(reg));
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      const m = k && k.match(/^ecbook:ans[r]?:([^:]+):/);
+      if (m && m[1] !== 'DOSEN' && m[1] !== 'GUEST') nims.add(m[1]);
+    }
+    return [...nims].map((nim) => {
+      const info = reg[nim] || {};
+      const ans = this.collect(nim);
+      return { nim, name: info.name || '(tanpa nama)', kelas: info.kelas || '', updated: info.updated || 0, textDone: ans.textCount, angketDone: ans.angketCount };
+    }).sort((a, b) => b.updated - a.updated);
+  }
+
+  collect(nim) {
+    const text = {}, radio = {};
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (!k) continue;
+      if (k.startsWith('ecbook:ans:' + nim + ':')) text[k.slice(('ecbook:ans:' + nim + ':').length)] = localStorage.getItem(k);
+      else if (k.startsWith('ecbook:ansr:' + nim + ':')) radio[k.slice(('ecbook:ansr:' + nim + ':').length)] = localStorage.getItem(k);
+    }
+    const textCount = Object.values(text).filter((v) => v && v.trim()).length;
+    return { text, radio, textCount, angketCount: Object.keys(radio).length };
+  }
+
+  fmtDate(ts) { if (!ts) return '—'; const d = new Date(ts); return d.toLocaleDateString('id-ID', { day: '2-digit', month: 'short' }) + ' ' + d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }); }
+  esc(s) { return (s == null ? '' : String(s)).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  openDash() { document.getElementById('dashModal').style.display = 'block'; this.renderDash(); }
+
+  renderDash() {
+    const body = document.getElementById('dashBody');
+    if (!body) return;
+    const students = this.listStudents();
+    const totalText = Object.keys(this.noteLabels).length;
+    let html = '<div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:16px;">' +
+      '<div style="flex:1; min-width:130px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px;"><div style="font:800 26px/1 Newsreader; color:#0e8388;">' + students.length + '</div><div style="font-size:12px; color:var(--muted);">Mahasiswa terdata</div></div>' +
+      '<div style="flex:1; min-width:130px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px;"><div style="font:800 26px/1 Newsreader; color:#2f8f5b;">' + totalText + '</div><div style="font-size:12px; color:var(--muted);">Butir isian/esai</div></div>' +
+      '<div style="flex:1; min-width:130px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px;"><div style="font:800 26px/1 Newsreader; color:#375a97;">25</div><div style="font-size:12px; color:var(--muted);">Butir angket EA</div></div></div>';
+
+    if (!students.length) {
+      html += '<div style="background:#fff; border:1px dashed var(--line); border-radius:12px; padding:30px; text-align:center; color:var(--muted); font-size:14px;">Belum ada data mahasiswa pada perangkat ini.<br>Mahasiswa dapat login &amp; mengerjakan, atau impor berkas jawaban (JSON) yang mereka kumpulkan.</div>';
+      body.innerHTML = html;
+      return;
+    }
+    html += '<div style="overflow-x:auto; background:#fff; border:1px solid var(--line); border-radius:12px;"><table style="width:100%; border-collapse:collapse; font-size:13px; min-width:560px;"><thead><tr style="background:#0c2a30; color:#fff; text-align:left;"><th style="padding:10px 12px;">Mahasiswa</th><th style="padding:10px 12px;">Kelas</th><th style="padding:10px 12px; text-align:center;">Isian/Esai</th><th style="padding:10px 12px; text-align:center;">Angket</th><th style="padding:10px 12px;">Terakhir</th><th style="padding:10px 12px;"></th></tr></thead><tbody>';
+    students.forEach((s, i) => {
+      const pct = totalText ? Math.round((s.textDone / totalText) * 100) : 0;
+      html += '<tr style="border-top:1px solid var(--line); ' + (i % 2 ? 'background:#f7fbfa;' : '') + '">' +
+        '<td style="padding:9px 12px;"><b>' + this.esc(s.name) + '</b><div style="font-size:11px; color:var(--muted);">' + this.esc(s.nim) + '</div></td>' +
+        '<td style="padding:9px 12px; color:var(--muted);">' + (this.esc(s.kelas) || '—') + '</td>' +
+        '<td style="padding:9px 12px; text-align:center;"><div style="font-weight:700;">' + s.textDone + '/' + totalText + '</div><div style="height:5px; width:56px; margin:3px auto 0; background:#e2ece9; border-radius:3px; overflow:hidden;"><div style="height:100%; width:' + pct + '%; background:' + (pct >= 67 ? '#2f8f5b' : pct >= 34 ? '#c47f22' : '#cf503b') + ';"></div></div></td>' +
+        '<td style="padding:9px 12px; text-align:center; font-weight:700; color:' + (s.angketDone >= 25 ? '#2f8f5b' : 'var(--body)') + ';">' + s.angketDone + '/25</td>' +
+        '<td style="padding:9px 12px; color:var(--muted); font-size:12px;">' + this.fmtDate(s.updated) + '</td>' +
+        '<td style="padding:9px 12px; white-space:nowrap;"><button data-dash-view="' + this.esc(s.nim) + '" style="padding:6px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--teal-d); font-weight:700; font-size:12px; cursor:pointer;">Lihat</button> <button data-dash-export="' + this.esc(s.nim) + '" style="padding:6px 10px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--indigo); font-weight:700; font-size:12px; cursor:pointer;">⇩</button> <button data-dash-del="' + this.esc(s.nim) + '" title="Hapus data mahasiswa ini" style="padding:6px 10px; border:1px solid #f0c9c2; border-radius:8px; background:#fff; color:var(--coral); font-weight:700; font-size:12px; cursor:pointer;">🗑</button></td></tr>';
+    });
+    html += '</tbody></table></div>';
+    body.innerHTML = html;
+  }
+
+  viewStudent(nim) {
+    const body = document.getElementById('dashBody');
+    const students = this.listStudents();
+    const s = students.find((x) => x.nim === nim) || { name: nim, nim, kelas: '' };
+    const data = this.collect(nim);
+    let html = '<button data-dash-back style="padding:8px 14px; border:1px solid var(--line); border-radius:9px; background:#fff; color:var(--teal-d); font-weight:700; font-size:13px; cursor:pointer; margin-bottom:14px;">← Kembali ke daftar</button>';
+    html += '<div style="background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px;"><div style="font:800 18px/1.1 Newsreader; color:var(--ink);">' + this.esc(s.name) + '</div><div style="font-size:12.5px; color:var(--muted); margin-top:2px;">NIM ' + this.esc(s.nim) + (s.kelas ? ' · ' + this.esc(s.kelas) : '') + '</div><button data-dash-export="' + this.esc(nim) + '" style="margin-top:10px; padding:7px 14px; border:none; border-radius:9px; background:#2f8f5b; color:#fff; font-weight:700; font-size:12.5px; cursor:pointer;">⇩ Unduh jawaban (JSON)</button></div>';
+
+    // group text answers by chapter
+    const groups = {};
+    Object.keys(this.noteLabels).forEach((id) => {
+      const meta = this.noteLabels[id];
+      const val = data.text[id];
+      if (!groups[meta.chap]) groups[meta.chap] = [];
+      groups[meta.chap].push({ id, label: meta.label, val });
+    });
+    Object.keys(groups).forEach((chap) => {
+      const items = groups[chap];
+      const filled = items.filter((it) => it.val && it.val.trim()).length;
+      html += '<div style="background:#fff; border:1px solid var(--line); border-radius:12px; padding:6px 0; margin-bottom:12px;"><div style="font:700 13px/1 Mulish; color:var(--teal-d); padding:10px 16px; display:flex; justify-content:space-between;"><span>' + this.esc(chap) + '</span><span style="color:var(--muted); font-weight:600;">' + filled + '/' + items.length + ' terisi</span></div>';
+      items.forEach((it) => {
+        const has = it.val && it.val.trim();
+        html += '<div style="padding:10px 16px; border-top:1px solid var(--line);"><div style="font-size:12px; color:var(--muted); margin-bottom:4px;">' + this.esc(it.label) + '</div>' +
+          (has ? '<div style="font-size:13.5px; white-space:pre-wrap; color:var(--body);">' + this.esc(it.val) + '</div>' : '<div style="font-size:12.5px; color:#b9c6c3; font-style:italic;">— belum dijawab —</div>') + '</div>';
+      });
+      html += '</div>';
+    });
+
+    // angket
+    const rk = Object.keys(data.radio);
+    if (rk.length) {
+      const dims = { isu: 0, sikap: 0, perilaku: 0, praktik: 0, gaya: 0 };
+      // map ea1..ea5 isu, 6-10 sikap, 11-15 perilaku, 16-20 praktik, 21-25 gaya
+      rk.forEach((name) => {
+        const n = parseInt(name.replace('ea', ''), 10);
+        const v = Number(data.radio[name]) || 0;
+        if (n >= 1 && n <= 5) dims.isu += v; else if (n <= 10) dims.sikap += v; else if (n <= 15) dims.perilaku += v; else if (n <= 20) dims.praktik += v; else if (n <= 25) dims.gaya += v;
+      });
+      const sum = Object.values(dims).reduce((a, b) => a + b, 0);
+      const pct = Math.round((sum / 125) * 100);
+      const dn = { isu: 'Pengetahuan isu', sikap: 'Sikap', perilaku: 'Perilaku', praktik: 'Praktik berkelanjutan', gaya: 'Ubah gaya hidup' };
+      html += '<div style="background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px;"><div style="font:700 13px/1 Mulish; color:var(--green); margin-bottom:10px;">Angket EA — ' + rk.length + '/25 terjawab · Skor ' + sum + '/125 (' + pct + '%)</div>';
+      Object.keys(dn).forEach((k) => { html += '<div style="display:flex; justify-content:space-between; font-size:13px; padding:3px 0; border-bottom:1px dashed var(--line);"><span>' + dn[k] + '</span><b>' + dims[k] + '/25</b></div>'; });
+      html += '</div>';
+    }
+    body.innerHTML = html;
+  }
+
+  delStudent(nim) {
+    const s = this.listStudents().find((x) => x.nim === nim);
+    const nm = s ? s.name : nim;
+    if (!window.confirm('Hapus semua data mahasiswa "' + nm + '" (NIM ' + nim + ')?\nTindakan ini tidak dapat dibatalkan.')) return;
+    try {
+      const keys = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && (k.startsWith('ecbook:ans:' + nim + ':') || k.startsWith('ecbook:ansr:' + nim + ':'))) keys.push(k);
+      }
+      keys.forEach((k) => localStorage.removeItem(k));
+      const reg = JSON.parse(localStorage.getItem('ecbook:students') || '{}');
+      delete reg[nim];
+      localStorage.setItem('ecbook:students', JSON.stringify(reg));
+    } catch (e) {}
+    this.renderDash();
+  }
+
+  delAll() {
+    const n = this.listStudents().length;
+    if (!n) { window.alert('Belum ada data mahasiswa untuk dihapus.'); return; }
+    if (!window.confirm('Hapus SELURUH data ' + n + ' mahasiswa pada perangkat ini?\nSesi login dosen tetap aktif. Tindakan ini tidak dapat dibatalkan.')) return;
+    try {
+      const keys = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const k = localStorage.key(i);
+        if (k && (/^ecbook:ans[r]?:/.test(k)) && !k.startsWith('ecbook:ans:DOSEN:') && !k.startsWith('ecbook:ansr:DOSEN:')) keys.push(k);
+      }
+      keys.forEach((k) => localStorage.removeItem(k));
+      localStorage.setItem('ecbook:students', '{}');
+    } catch (e) {}
+    this.renderDash();
+  }
+
+  download(filename, text, type) {
+    try {
+      const blob = new Blob([text], { type: type || 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = filename; document.body.appendChild(a); a.click();
+      setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 400);
+    } catch (e) {}
+  }
+
+  exportOne(nim) {
+    const data = this.collect(nim);
+    const reg = (() => { try { return JSON.parse(localStorage.getItem('ecbook:students') || '{}'); } catch (e) { return {}; } })();
+    const info = reg[nim] || {};
+    const u = this.cu();
+    const payload = { app: 'ecbook', nim, name: info.name || (u && u.nim === nim ? u.name : nim), kelas: info.kelas || (u ? u.kelas : '') || '', updated: info.updated || Date.now(), answers: data.text, angket: data.radio };
+    this.download('jawaban_' + nim + '.json', JSON.stringify(payload, null, 2));
+  }
+
+  exportCsv() {
+    const rows = [['NIM', 'Nama', 'Kelas', 'Tipe', 'Butir', 'Jawaban']];
+    this.listStudents().forEach((s) => {
+      const d = this.collect(s.nim);
+      Object.keys(this.noteLabels).forEach((id) => { const v = d.text[id]; if (v && v.trim()) rows.push([s.nim, s.name, s.kelas, 'esai', this.noteLabels[id].label, v]); });
+      Object.keys(d.radio).forEach((name) => rows.push([s.nim, s.name, s.kelas, 'angket', name, d.radio[name]]));
+    });
+    const csv = rows.map((r) => r.map((c) => '"' + String(c == null ? '' : c).replace(/"/g, '""').replace(/\r?\n/g, ' ') + '"').join(',')).join('\r\n');
+    this.download('rekap_jawaban_mahasiswa.csv', '\ufeff' + csv, 'text/csv;charset=utf-8');
+  }
+
+  importFiles(files) {
+    if (!files || !files.length) return;
+    let done = 0; const total = files.length;
+    [...files].forEach((f) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const p = JSON.parse(reader.result);
+          if (p && p.nim) {
+            const nim = String(p.nim).replace(/[^A-Za-z0-9_-]/g, '');
+            if (p.answers) Object.keys(p.answers).forEach((id) => { if (p.answers[id] != null) localStorage.setItem('ecbook:ans:' + nim + ':' + id, p.answers[id]); });
+            if (p.angket) Object.keys(p.angket).forEach((nm) => { if (p.angket[nm] != null) localStorage.setItem('ecbook:ansr:' + nim + ':' + nm, p.angket[nm]); });
+            const reg = JSON.parse(localStorage.getItem('ecbook:students') || '{}');
+            reg[nim] = { name: p.name || nim, kelas: p.kelas || '', updated: p.updated || Date.now() };
+            localStorage.setItem('ecbook:students', JSON.stringify(reg));
+          }
+        } catch (e) {}
+        done++; if (done === total) this.renderDash();
+      };
+      reader.readAsText(f);
+    });
+  }
+  wireClicks() {
+    document.getElementById('bookRoot').addEventListener('click', (e) => {
+      // youtube lite-embed -> load player on click
+      const yt = e.target.closest('[data-yt-holder]');
+      if (yt && !yt.querySelector('iframe')) {
+        const id = yt.getAttribute('data-yt');
+        yt.innerHTML = '<iframe style="position:absolute; inset:0; width:100%; height:100%; border:0;" src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+        return;
+      }
+      // reveal toggles
+      const rev = e.target.closest('[data-reveal]');
+      if (rev) {
+        const el = document.getElementById(rev.getAttribute('data-reveal'));
+        if (el) {
+          const open = el.getAttribute('data-open') === '1';
+          el.style.display = open ? 'none' : 'block';
+          el.setAttribute('data-open', open ? '0' : '1');
+          const lbl = rev.getAttribute(open ? 'data-label-show' : 'data-label-hide');
+          if (lbl) rev.querySelector('[data-lbl]') ? (rev.querySelector('[data-lbl]').textContent = lbl) : (rev.textContent = lbl);
+        }
+        return;
+      }
+      // quiz options
+      const opt = e.target.closest('[data-opt]');
+      if (opt) {
+        const quiz = opt.closest('[data-quiz]');
+        if (!quiz || quiz.getAttribute('data-answered') === '1') return;
+        const correct = opt.getAttribute('data-correct') === '1';
+        quiz.setAttribute('data-answered', '1');
+        this.updateGate();
+        quiz.querySelectorAll('[data-opt]').forEach((o) => {
+          o.style.cursor = 'default';
+          const isC = o.getAttribute('data-correct') === '1';
+          if (isC) { o.style.background = '#e6f6ec'; o.style.borderColor = '#2f8f5b'; o.style.color = '#1c5f39'; }
+          else if (o === opt) { o.style.background = '#fbe9e6'; o.style.borderColor = '#cf503b'; o.style.color = '#8f2c1e'; }
+          else { o.style.opacity = '0.6'; }
+          const mk = o.querySelector('[data-mark]');
+          if (mk && isC) mk.textContent = '✓';
+          else if (mk && o === opt && !correct) mk.textContent = '✕';
+        });
+        const fb = quiz.querySelector('[data-feedback]');
+        if (fb) {
+          fb.style.display = 'block';
+          fb.style.background = correct ? '#e6f6ec' : '#fbe9e6';
+          fb.style.color = correct ? '#1c5f39' : '#8f2c1e';
+          fb.style.borderColor = correct ? '#bfe6cd' : '#f0c9c2';
+          const good = fb.getAttribute('data-fb-correct') || 'Tepat!';
+          const bad = fb.getAttribute('data-fb-wrong') || 'Belum tepat. Lihat opsi yang ditandai hijau.';
+          const expl = fb.getAttribute('data-expl') || '';
+          fb.innerHTML = '<b>' + (correct ? '✓ ' + good : '✕ ' + bad) + '</b>' + (expl ? '<br>' + expl : '');
+        }
+        return;
+      }
+      // angket score
+      const sc = e.target.closest('[data-angket-score]');
+      if (sc) { this.scoreAngket(sc.getAttribute('data-angket-score')); return; }
+      const rs = e.target.closest('[data-angket-reset]');
+      if (rs) {
+        const box = document.getElementById(rs.getAttribute('data-angket-reset'));
+        if (box) box.querySelectorAll('input[type="radio"]').forEach((r) => { r.checked = false; try { localStorage.removeItem(this.rKey(r.name)); } catch (e) {} });
+        const out = document.getElementById(rs.getAttribute('data-angket-reset') + '-out');
+        if (out) out.style.display = 'none';
+        return;
+      }
+    });
+  }
+  scoreAngket(id) {
+    const box = document.getElementById(id);
+    const out = document.getElementById(id + '-out');
+    if (!box || !out) return;
+    const groups = {};
+    box.querySelectorAll('input[type="radio"]:checked').forEach((r) => {
+      const g = r.getAttribute('data-dim') || 'x';
+      groups[g] = (groups[g] || 0) + Number(r.value);
+    });
+    const totalItems = new Set([...box.querySelectorAll('input[type="radio"]')].map((r) => r.name)).size;
+    const answered = box.querySelectorAll('input[type="radio"]:checked').length;
+    let sum = Object.values(groups).reduce((a, b) => a + b, 0);
+    const max = totalItems * 5;
+    const pct = max ? Math.round((sum / max) * 100) : 0;
+    let level = 'Rendah', col = '#cf503b';
+    if (pct >= 84) { level = 'Sangat Tinggi'; col = '#1c7a45'; }
+    else if (pct >= 68) { level = 'Tinggi'; col = '#2f8f5b'; }
+    else if (pct >= 52) { level = 'Sedang'; col = '#c47f22'; }
+    const dimNames = { isu: 'Pengetahuan isu lingkungan', sikap: 'Sikap terhadap lingkungan', perilaku: 'Perilaku ramah lingkungan', praktik: 'Menerapkan praktik berkelanjutan', gaya: 'Kesediaan mengubah gaya hidup' };
+    let rows = '';
+    Object.keys(dimNames).forEach((k) => {
+      if (groups[k] != null) rows += '<div style="display:flex; justify-content:space-between; gap:12px; padding:4px 0; border-bottom:1px dashed #d6e4e1;"><span>' + dimNames[k] + '</span><b>' + groups[k] + ' / 25</b></div>';
+    });
+    out.style.display = 'block';
+    out.innerHTML = '<div style="font:800 15px/1 Mulish; color:#0f3238; margin-bottom:8px;">Hasil Angket EA Anda</div>' +
+      (answered < totalItems ? '<div style="color:#c47f22; font-size:13px; margin-bottom:8px;">Catatan: ' + answered + ' dari ' + totalItems + ' pernyataan terjawab. Lengkapi untuk hasil akurat.</div>' : '') +
+      '<div style="display:flex; align-items:baseline; gap:10px; margin-bottom:6px;"><div style="font:800 34px/1 Newsreader; color:' + col + ';">' + pct + '%</div><div style="font-weight:700; color:' + col + ';">' + level + '</div></div>' +
+      '<div style="height:10px; border-radius:6px; background:#e2ece9; overflow:hidden; margin-bottom:12px;"><div style="height:100%; width:' + pct + '%; background:' + col + ';"></div></div>' +
+      '<div style="font-size:13.5px;">Skor total: <b>' + sum + ' / ' + max + '</b></div>' +
+      '<div style="margin-top:10px; font-size:13.5px;">' + rows + '</div>' +
+      '<div style="margin-top:10px; font-size:12.5px; color:#5f7d80;">Kategori: &lt;52% Rendah · 52–67% Sedang · 68–83% Tinggi · ≥84% Sangat Tinggi. Angket ini untuk refleksi diri, bukan penilaian formal.</div>';
+  }
+  wireToc() {
+    const toggle = document.getElementById('tocToggle');
+    const aside = document.getElementById('tocAside');
+    if (toggle && aside) {
+      toggle.addEventListener('click', () => aside.classList.toggle('open'));
+      aside.querySelectorAll('a[href^="#"]').forEach((a) => a.addEventListener('click', () => { if (window.innerWidth <= 1040) aside.classList.remove('open'); }));
+    }
+    const bar = document.getElementById('progressBar');
+    const links = [...document.querySelectorAll('#tocAside a[data-toc]')];
+    const map = {};
+    links.forEach((l) => { map[l.getAttribute('data-toc')] = l; });
+    const sections = [...document.querySelectorAll('[data-section],[data-chapter]')];
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => {
+        const st = window.scrollY || document.documentElement.scrollTop;
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        if (bar) bar.style.width = (h > 0 ? (st / h) * 100 : 0) + '%';
+        let cur = null;
+        for (const s of sections) {
+          if (s.getBoundingClientRect().top <= 140) cur = s;
+        }
+        links.forEach((l) => { l.style.background = 'transparent'; l.style.color = '#cfe6e2'; });
+        if (cur && map[cur.id]) {
+          const a = map[cur.id];
+          a.style.background = 'rgba(127,216,207,.16)';
+          a.style.color = '#fff';
+        }
+        ticking = false;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+}
+</script>
+<script>
+(async () => {
+  if (!document.title || !document.title.trim()) document.title = "Bab 2";
+  // Prepend so page-supplied @page / break rules (deck-stage's margin:0,
+  // author CSS) keep source-order precedence over the baseline.
+  const baseCss = document.createElement('style');
+  baseCss.textContent = "@media print {\n  figure, table { break-inside: avoid; }\n  *, *::before, *::after {\n    print-color-adjust: exact; -webkit-print-color-adjust: exact;\n    backdrop-filter: none !important; -webkit-backdrop-filter: none !important;\n    animation-delay: -99s !important; animation-duration: .001s !important;\n    animation-iteration-count: 1 !important; animation-fill-mode: both !important;\n    animation-play-state: running !important; transition-duration: 0s !important;\n  }\n}";
+  document.head.prepend(baseCss);
+  if (document.readyState === 'loading') {
+    await new Promise((r) => document.addEventListener('DOMContentLoaded', r, { once: true }));
+  }
+  let ds = document.querySelector('deck-stage');
+  // whenDefined never resolves when nothing registers the element, so only
+  // await it when a <deck-stage> tag exists (and race a timeout regardless).
+  if (ds && !customElements.get('deck-stage')) {
+    try {
+      await Promise.race([
+        customElements.whenDefined('deck-stage'),
+        new Promise((r) => setTimeout(r, 3000)),
+      ]);
+    } catch (e) {}
+    ds = document.querySelector('deck-stage');
+  }
+  // dc-runtime assigns window.DCLogic at init and mounts into #dc-root on
+  // DOMContentLoaded; settle on that subtree so React has rendered before
+  // print(). Non-DC pages fall through to weighing body.
+  const isDc = !ds && 'DCLogic' in window;
+  const settleRoot = ds || (isDc ? document.getElementById('dc-root') : null) || document.body;
+  if (settleRoot) {
+    // Weigh only content children — skip script/style/template so inline
+    // Babel/CSS doesn't register as stable "content" before the framework
+    // has mounted anything.
+    const MEDIA = 'img,svg,canvas,video,picture,iframe,embed,object';
+    const weigh = () => {
+      let text = 0, media = 0;
+      for (const c of settleRoot.children) {
+        const t = c.tagName;
+        if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+        text += (c.textContent || '').trim().length;
+        media += c.querySelectorAll(MEDIA).length + (c.matches(MEDIA) ? 1 : 0);
+      }
+      return text + media * 100;
+    };
+    // "Non-zero and stable" alone is not sufficient to mean rendered: generic
+    // body can carry a static shell while async main content is pending, and
+    // #dc-root can carry the root DC's static text while child refs are still
+    // .sc-placeholder boxes. Gate generic on readyState 'complete', and never
+    // accept stability while a dc-runtime placeholder is present.
+    const isGeneric = settleRoot === document.body;
+    const deadline = Date.now() + 15000;
+    let last = -1, stable = 0;
+    while (Date.now() < deadline) {
+      const n = weigh();
+      const ready =
+        (!isGeneric || document.readyState === 'complete') &&
+        !settleRoot.querySelector('.sc-placeholder');
+      if (n > 0 && n === last && ready) { if (++stable >= 2) break; } else { stable = 0; }
+      last = n;
+      await new Promise((r) => setTimeout(r, 250));
+    }
+  }
+  // Project support.js may predate runtime default-seeding; push via bridge.
+  if (isDc && window.__dcSetProps && window.__dcRootName) {
+    try {
+      const dpEl = document.querySelector('script[data-dc-script]');
+      const meta = JSON.parse((dpEl && dpEl.getAttribute('data-props')) || '{}');
+      const bag = {};
+      for (const k in meta)
+        if (k[0] !== '$' && meta[k] && meta[k].default !== undefined)
+          bag[k] = meta[k].default;
+      if (Object.keys(bag).length) {
+        window.__dcSetProps(window.__dcRootName(), bag);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    } catch (e) {}
+  }
+  // Reveal content gated on scroll or visibility before printing. Lazy <img>,
+  // IntersectionObserver fade-ins, and collapsed <details> don't render while
+  // off-screen, so a long page would print with them blank or closed. Open
+  // every <details>, force native-lazy images eager, and scroll the document
+  // through its full height to trip lazy-load + IO; then wait (bounded) for the
+  // newly-triggered images. Inert for deck-stage (slides aren't scroll-gated).
+  try {
+    for (const d of document.querySelectorAll('details')) d.open = true;
+    for (const img of document.querySelectorAll('img[loading="lazy"]'))
+      img.loading = 'eager';
+    const scroller = document.scrollingElement || document.documentElement;
+    const full = Math.max(scroller.scrollHeight, document.body.scrollHeight);
+    const step = window.innerHeight || 800;
+    for (let y = 0; y <= full; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => requestAnimationFrame(r));
+    }
+    window.scrollTo(0, 0);
+    await Promise.race([
+      Promise.all(
+        [...document.images].map((img) =>
+          img.complete
+            ? null
+            : new Promise((res) => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+        )
+      ),
+      new Promise((r) => setTimeout(r, 4000)),
+    ]);
+  } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  // Jump every animation to its end state so print() never captures a slide
+  // mid-entrance. Ordering matters: the 0s-transition style must be live
+  // BEFORE data-deck-active is set so attribute-keyed transitions don't
+  // start a (now-0s) run from the pre-active base.
+  const st = document.createElement('style');
+  st.textContent = '*,*::before,*::after{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}';
+  document.head.appendChild(st);
+  for (const d of document.querySelectorAll('deck-stage')) {
+    for (const c of d.children) {
+      const t = c.tagName;
+      if (t === 'SCRIPT' || t === 'STYLE' || t === 'TEMPLATE') continue;
+      c.setAttribute('data-deck-active', '');
+    }
+  }
+  // Re-append deck-stage's @page last so no author @page can add a margin and
+  // spill each full-bleed slide onto two sheets. Backstop for old copies.
+  if (ds) {
+    let pg = document.getElementById('deck-stage-print-page');
+    if (!pg) {
+      pg = document.createElement('style');
+      pg.textContent = '@page{size:' + (+ds.getAttribute('width') || 1920) +
+        'px ' + (+ds.getAttribute('height') || 1080) + 'px;margin:0}';
+    }
+    document.body.appendChild(pg);
+  }
+  try {
+    const sweep = () => {
+      for (const a of document.getAnimations()) {
+        try { a.finish(); } catch (e) {
+          try { a.currentTime = (a.effect && a.effect.getComputedTiming().duration) || 0; a.pause(); } catch (e2) {}
+        }
+      }
+    };
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+    sweep();
+    await new Promise((r) => requestAnimationFrame(r));
+  } catch (e) {}
+  // Size the PDF page to the rendered design unless the file opted into
+  // standard paper via @page{size:letter|A4|…}. Decks own their own @page.
+  // Wrappers (body, …) lose padding+margin so the frame sits at (0,0); the
+  // frame itself loses only margin — its padding is INSIDE the measured
+  // rect and must stay, or content shifts and leaves a gap at bottom/right.
+  var __m = null;
+  try { __m = (() => {
+  var STAMP = true;
+  var docEl = document.documentElement;
+  var doc = { width: docEl.scrollWidth, height: docEl.scrollHeight };
+
+  var ds = document.querySelector('deck-stage');
+  if (ds) {
+    var dw = Number(ds.getAttribute('width')) || 1920;
+    var dh = Number(ds.getAttribute('height')) || 1080;
+    var n = typeof ds.length === 'number' ? ds.length : ds.children.length;
+    var idx = typeof ds.index === 'number' ? ds.index : 0;
+    var frames = [];
+    for (var i = 0; i < n; i++) frames.push({ left: 0, top: 0, width: dw, height: dh });
+    return { kind: 'deck', source: 'declared', doc: doc, frames: frames,
+      authored: frames.map(function(){return{width:true,height:true}}),
+      deck: { width: dw, height: dh, slideCount: n, index: idx },
+      signals: { paperPage: false, pxPage: false } };
+  }
+
+  // Declared kind: a doc-page tag names the kind outright, so no signal
+  // heuristics run (like the deck branch above, signals report false —
+  // they describe inferred classifications only). The tag alone is not
+  // trusted: the element must have upgraded (shadowRoot present), so a
+  // leftover tag whose script was deleted falls through to the heuristics
+  // that handle plain markup.
+  var stageSx = window.scrollX || 0, stageSy = window.scrollY || 0;
+  var dp = document.querySelector('doc-page');
+  if (dp && dp.shadowRoot) {
+    // Crop to the sheet, not the host — the desk around it is screen-only
+    // chrome that must not land in PNG exports.
+    var sheet = dp.shadowRoot.querySelector('.sheet');
+    var sr = (sheet || dp).getBoundingClientRect();
+    return { kind: 'paper-doc', source: 'declared', doc: doc,
+      frames: [{ left: sr.left + stageSx, top: sr.top + stageSy,
+        width: sr.width, height: sr.height }],
+      authored: [{ width: false, height: false }],
+      signals: { paperPage: false, pxPage: false } };
+  }
+  var paperPage = false, pxPage = false;
+  var eachRule = function (fn) {
+    for (var s = 0; s < document.styleSheets.length; s++) {
+      var rs; try { rs = document.styleSheets[s].cssRules; } catch (e) { continue; }
+      for (var r = 0; r < rs.length; r++) {
+        fn(rs[r]);
+        if (rs[r].cssRules) for (var n = 0; n < rs[r].cssRules.length; n++) fn(rs[r].cssRules[n]);
+      }
+    }
+  };
+  eachRule(function (r) {
+    if (r.type !== 6) return;
+    var m = /\bsize\s*:\s*([^;}]+)/i.exec(r.cssText || '');
+    if (!m) return;
+    if (/\b(letter|a[3-5]|legal|ledger)\b/i.test(m[1])) paperPage = true;
+    if (/\d+(?:\.\d+)?px\b/i.test(m[1])) pxPage = true;
+  });
+  var signals = { paperPage: paperPage, pxPage: pxPage };
+
+  var pxVal = function (v) {
+    var m = /^(\d+(?:\.\d+)?)px$/.exec(v || ''); return m ? +m[1] : 0;
+  };
+  var authoredPx = function (el, prop) {
+    if (pxVal(el.style[prop])) return true;
+    var attr = el.getAttribute(prop);
+    if (attr && /^\d+$/.test(attr)) return true;
+    var hit = false;
+    eachRule(function (r) {
+      if (hit || r.type !== 1 || !r.style) return;
+      try { if (el.matches(r.selectorText) && pxVal(r.style[prop])) hit = true; } catch (e) {}
+    });
+    return hit;
+  };
+
+  var el = document.body, rootPxW = false;
+  for (;;) {
+    var kids = [];
+    for (var c = 0; c < el.children.length; c++) {
+      var t = el.children[c].tagName;
+      if (t !== 'SCRIPT' && t !== 'STYLE' && t !== 'TEMPLATE') kids.push(el.children[c]);
+    }
+    if (kids.length !== 1 || !(kids[0] instanceof HTMLElement)) break;
+    if (STAMP) el.setAttribute('data-om-frame-wrap', '');
+    el = kids[0];
+    rootPxW = authoredPx(el, 'width');
+    if (rootPxW) break;
+  }
+  if (!rootPxW) rootPxW = authoredPx(el, 'width');
+
+  // @page{size:letter} alone is a flowing doc; with a px-width root it's a
+  // fixed sheet pretending to be paper — fall through and size to render.
+  if (paperPage && !rootPxW) {
+    return { kind: 'paper-doc', source: 'inferred', doc: doc, signals: signals,
+      frames: [{ left: 0, top: 0, width: doc.width, height: doc.height }],
+      authored: [{ width: false, height: false }] };
+  }
+
+  var sx = window.scrollX || 0, sy = window.scrollY || 0;
+  var rectOf = function (e) {
+    var r = e.getBoundingClientRect();
+    var oy; try { oy = getComputedStyle(e).overflowY; } catch (err) {}
+    var h = oy === 'visible' ? Math.max(r.height, e.scrollHeight || 0) : r.height;
+    return { left: r.left + sx, top: r.top + sy, width: r.width, height: h };
+  };
+
+  // Multi-frame: ≥2 visible non-fixed children, each with authored px width
+  // AND height, all within ±2px of each other. Off unless the page opts in
+  // via data-om-multi-frame on the stop element — guards against card grids
+  // and pricing tables that match the geometry but aren't separate canvases.
+  if (el.hasAttribute('data-om-multi-frame')) {
+    var cands = [];
+    for (var k = 0; k < el.children.length; k++) {
+      var ch = el.children[k];
+      var cs; try { cs = getComputedStyle(ch); } catch (e) { continue; }
+      if (cs.display === 'none' || cs.visibility === 'hidden' || cs.position === 'fixed') continue;
+      var rc = rectOf(ch);
+      if (rc.width < 2 || rc.height < 2) continue;
+      if (!authoredPx(ch, 'width') || !authoredPx(ch, 'height')) continue;
+      cands.push(rc);
+    }
+    if (cands.length >= 2) {
+      var w0 = cands[0].width, h0 = cands[0].height, ok = true;
+      for (var q = 1; q < cands.length; q++)
+        if (Math.abs(cands[q].width - w0) > 2 || Math.abs(cands[q].height - h0) > 2) ok = false;
+      if (ok) return { kind: 'multi-frame', source: 'inferred', doc: doc, signals: signals,
+        frames: cands, authored: cands.map(function(){return{width:true,height:true}}) };
+    }
+  }
+
+  if (STAMP) el.setAttribute('data-om-frame', '');
+  return { kind: 'single-canvas', source: 'inferred', doc: doc, signals: signals,
+    frames: [rectOf(el)],
+    authored: [{ width: rootPxW, height: authoredPx(el, 'height') }] };
+})(); } catch (e) {}
+  var frame = null;
+  if (__m && __m.kind === 'single-canvas') {
+    var f = __m.frames && __m.frames[0];
+    if (f && f.width >= 200 && f.height >= 200) {
+      frame = f;
+      var fst = document.createElement('style');
+      fst.textContent = '@media print{@page{size:' + Math.ceil(f.width) + 'px ' +
+        Math.ceil(f.height) + 'px;margin:0}' +
+        'html,body,[data-om-frame-wrap]{padding:0!important;margin:0!important;background:none!important}' +
+        '[data-om-frame]{margin:0!important}}';
+      document.body.appendChild(fst);
+    }
+  }
+  // Relax break-inside on oversized elements. An element taller than a
+  // printable page can't honor break-inside: avoid — browsers either overflow
+  // it or push it whole to the next page, leaving a blank gap, then break it
+  // anyway at an arbitrary point. After the final layout (content revealed,
+  // animations jumped), find elements taller than a page that still compute
+  // break-inside: avoid and reset them to auto, so the browser breaks them at
+  // their children's boundaries instead (children keep their own avoid). PAGE_PX
+  // is a conservative portrait estimate at 96 CSS px/in — Letter/A4 usable
+  // height minus our 0.5in margins — so only clearly-oversized elements are
+  // touched and under-page elements still stay whole. Skipped for decks (slides
+  // are sized to the page) and for fixed-size canvases (frame set, or an author
+  // px-based @page) — runs as before for flowing docs on letter/A4.
+  try {
+    if (!ds && !frame && !(__m && __m.signals && __m.signals.pxPage)) {
+      const PAGE_PX = 1024;
+      // Our print defaults add a real @page margin only when the source has
+      // no @page of its own; computed style can't tell us (it reports screen
+      // media), so read the injected rule directly.
+      const defaults = document.querySelector('style[data-omelette-print-defaults]');
+      const pageInset = /@page\s*\{[^}]*margin/.test(defaults ? defaults.textContent || '' : '');
+      const SEL = 'section,article,figure,table,pre,blockquote,[class~="card" i],[class~="page" i],[class~="sheet" i]';
+      for (const el of document.body.querySelectorAll(SEL)) {
+        if (el instanceof HTMLElement && el.offsetHeight > PAGE_PX) {
+          el.setAttribute('data-om-oversized', '');
+          // Fake-paged docs simulate sheets with over-tall break-after:page
+          // boxes; honoring the break spills half-blank pages and ends a
+          // colored box mid-sheet. Flow them, and (only when we own the page
+          // inset) drop the redundant padding/background via the rule below.
+          const cs = getComputedStyle(el);
+          if (cs.breakAfter === 'page' || cs.pageBreakAfter === 'always') {
+            el.setAttribute('data-om-fakepage', '');
+          }
+        }
+      }
+      const ost = document.createElement('style');
+      ost.textContent = '@media print{' +
+        '[data-om-oversized]{break-inside:auto !important;page-break-inside:auto !important}' +
+        '[data-om-fakepage]{break-after:auto !important;page-break-after:auto !important}' +
+        (pageInset ? '[data-om-fakepage]{padding:0 !important;background:none !important}' : '') +
+        '}';
+      document.head.appendChild(ost);
+    }
+  } catch (e) {}
+  // macOS Preview renders Skia-PDF Luminosity soft-masks as opaque grey boxes;
+  // swap the CSS that triggers them for Preview-safe forms.
+  try {
+    for (const el of document.body.querySelectorAll('*')) {
+      const cs = getComputedStyle(el);
+
+      if (cs.boxShadow !== 'none' && cs.filter === 'none') {
+        const outs = [], kept = [];
+        for (const s of cs.boxShadow.split(/,(?![^(]*[)])/)) {
+          const t = s.trim();
+          const m = t.match(/^(rgba?[(][^)]+[)]) (-?[0-9.]+px) (-?[0-9.]+px) ([0-9.]+px) -?[0-9.]+px$/);
+          if (m && parseFloat(m[4]) > 0) outs.push('drop-shadow(' + m[2] + ' ' + m[3] + ' ' + m[4] + ' ' + m[1] + ')');
+          else kept.push(t);
+        }
+        if (outs.length) {
+          el.style.setProperty('filter', outs.join(' '), 'important');
+          el.style.setProperty('box-shadow', kept.join(', ') || 'none', 'important');
+        }
+      }
+
+      const mask = cs.maskImage && cs.maskImage !== 'none' ? cs.maskImage : cs.webkitMaskImage;
+      if (mask && mask !== 'none' && cs.filter === 'none') el.style.setProperty('filter', 'opacity(1)', 'important');
+    }
+  } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 200);
+})();
+</script>
+</body>
+</html>
