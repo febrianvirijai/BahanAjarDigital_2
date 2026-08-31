@@ -84,17 +84,14 @@
             <button type="button" id="mhsModeSignup" data-mhs-mode="signup" style="flex:1; padding:8px; border:none; border-radius:7px; font-family:inherit; font-size:12.5px; font-weight:800; cursor:pointer; background:#fff; color:var(--teal-d); box-shadow:0 2px 6px rgba(0,0,0,.08);">Daftar Baru</button>
             <button type="button" id="mhsModeLogin" data-mhs-mode="login" style="flex:1; padding:8px; border:none; border-radius:7px; font-family:inherit; font-size:12.5px; font-weight:700; cursor:pointer; background:transparent; color:var(--muted);">Masuk</button>
           </div>
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">NIM</label>
+          <input id="mhsNim" type="text" autocomplete="username" placeholder="mis. 2100123" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:14px;">
           <div id="mhsFieldsProfil">
             <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">Nama Lengkap</label>
             <input id="mhsName" type="text" autocomplete="name" placeholder="mis. Ahmad Fauzi" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:14px;">
-            <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">NIM</label>
-            <input id="mhsNim" type="text" autocomplete="username" placeholder="mis. 2100123" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:14px;">
-            <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">Kelas / Rombel <span style="font-weight:400; color:var(--muted);">(opsional)</span></label>
+            <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">Kelas / Rombel</label>
             <input id="mhsKelas" type="text" placeholder="mis. Pendidikan Fisika A" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:14px;">
           </div>
-          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">Email Pribadi</label>
-          <input id="mhsEmail" type="email" autocomplete="email" placeholder="nama@email.com" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:6px;">
-          <div id="mhsEmailHint" style="font-size:11px; color:var(--muted); margin-bottom:12px;">Tautan konfirmasi dan pemulihan kata sandi dikirim ke email ini.</div>
           <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">Kata Sandi</label>
           <input id="mhsPass" type="password" autocomplete="current-password" placeholder="Minimal 6 karakter" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:14px;">
           <div id="mhsPass2Wrap">
@@ -104,9 +101,8 @@
           <div id="mhsErr" style="display:none; color:var(--coral); font-size:12.5px; margin-bottom:10px;"></div>
           <div id="mhsOk" style="display:none; color:var(--green); font-size:12.5px; margin-bottom:10px; font-weight:600;"></div>
           <button id="mhsSubmitBtn" data-auth-login="mhs" style="width:100%; padding:13px; border:none; border-radius:10px; background:linear-gradient(135deg,#0e8388,#2f8f5b); color:#fff; font-weight:800; font-family:inherit; font-size:15px; cursor:pointer;">Daftar sebagai Mahasiswa</button>
-          <div style="display:flex; justify-content:space-between; gap:10px; margin-top:12px;">
+          <div id="mhsForgotWrap" style="margin-top:12px; text-align:center;">
             <button type="button" data-auth-forgot="mhs" style="border:none; background:none; padding:0; color:var(--teal-d); font-family:inherit; font-size:12px; font-weight:700; cursor:pointer; text-decoration:underline;">Lupa kata sandi?</button>
-            <button type="button" data-auth-resend="mhs" style="border:none; background:none; padding:0; color:var(--muted); font-family:inherit; font-size:12px; font-weight:700; cursor:pointer; text-decoration:underline;">Kirim ulang email konfirmasi</button>
           </div>
         </div>
 
@@ -116,16 +112,12 @@
             <button type="button" id="dosenModeSignup" data-dosen-mode="signup" style="flex:1; padding:8px; border:none; border-radius:7px; font-family:inherit; font-size:12.5px; font-weight:800; cursor:pointer; background:#fff; color:var(--indigo); box-shadow:0 2px 6px rgba(0,0,0,.08);">Daftar Baru</button>
             <button type="button" id="dosenModeLogin" data-dosen-mode="login" style="flex:1; padding:8px; border:none; border-radius:7px; font-family:inherit; font-size:12.5px; font-weight:700; cursor:pointer; background:transparent; color:var(--muted);">Masuk</button>
           </div>
-          <div id="dosenFieldsProfil">
-            <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">Nama Dosen</label>
-            <input id="dosenName" type="text" autocomplete="name" placeholder="mis. Febrian Virijai" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:14px;">
-          </div>
-          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">Email Pribadi</label>
-          <input id="dosenEmail" type="email" autocomplete="email" placeholder="nama@kampus.ac.id" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:12px;">
+          <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">Nama Dosen</label>
+          <input id="dosenName" type="text" autocomplete="name" placeholder="mis. Febrian Virijai" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:14px;">
           <div id="dosenRegCodeWrap">
             <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">Kode Registrasi Dosen</label>
             <input id="dosenRegCode" type="password" placeholder="Kode dari koordinator" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:6px;">
-            <div style="font-size:11px; color:var(--muted); margin-bottom:12px;">Kode ini hanya diperlukan saat pendaftaran pertama.</div>
+            <div id="dosenRegHint" style="font-size:11px; color:var(--muted); margin-bottom:12px;">Kode ini hanya diperlukan saat pendaftaran pertama.</div>
           </div>
           <label style="display:block; font-size:12.5px; font-weight:700; color:var(--ink); margin:0 0 5px;">Kata Sandi</label>
           <input id="dosenPass" type="password" autocomplete="current-password" placeholder="Minimal 6 karakter" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:10px; font-family:inherit; font-size:14.5px; color:var(--body); margin-bottom:14px;">
@@ -136,12 +128,11 @@
           <div id="dosenErr" style="display:none; color:var(--coral); font-size:12.5px; margin-bottom:10px;"></div>
           <div id="dosenOk" style="display:none; color:var(--green); font-size:12.5px; margin-bottom:10px; font-weight:600;"></div>
           <button id="dosenSubmitBtn" data-auth-login="dosen" style="width:100%; padding:13px; border:none; border-radius:10px; background:linear-gradient(135deg,#375a97,#0e8388); color:#fff; font-weight:800; font-family:inherit; font-size:15px; cursor:pointer;">Daftar sebagai Dosen</button>
-          <div style="display:flex; justify-content:space-between; gap:10px; margin-top:12px;">
+          <div style="margin-top:12px; text-align:center;">
             <button type="button" data-auth-forgot="dosen" style="border:none; background:none; padding:0; color:var(--indigo); font-family:inherit; font-size:12px; font-weight:700; cursor:pointer; text-decoration:underline;">Lupa kata sandi?</button>
-            <button type="button" data-auth-resend="dosen" style="border:none; background:none; padding:0; color:var(--muted); font-family:inherit; font-size:12px; font-weight:700; cursor:pointer; text-decoration:underline;">Kirim ulang email konfirmasi</button>
           </div>
         </div>
-        <div id="authFootNote" style="padding:0 24px 22px; font-size:11.5px; color:var(--muted); line-height:1.6;">Akun dikelola melalui email pribadi Anda. Kata sandi dapat diubah sendiri kapan saja melalui menu profil atau tautan pemulihan.</div>
+        <div id="authFootNote" style="padding:0 24px 22px; font-size:11.5px; color:var(--muted); line-height:1.6;">Mahasiswa masuk dengan <b>NIM</b>, dosen dengan <b>nama</b> dan kode registrasi. Kata sandi dapat diubah sendiri melalui menu profil setelah masuk.</div>
       </div>
     </div>
   </div>
@@ -1089,7 +1080,6 @@ class Component extends DCLogic {
     this.buildNoteLabels();
     this.wireAuth();
     this.initSession();
-    this.handleEmailLink();
     this.setupTimeTracking();
     this.applyGates();
     this.cloudMergeGates();
@@ -1566,9 +1556,7 @@ class Component extends DCLogic {
       if (dm) { this.setDosenMode(dm.getAttribute('data-dosen-mode')); return; }
       const fg = e.target.closest('[data-auth-forgot]');
       if (fg) { this.doForgot(fg.getAttribute('data-auth-forgot')); return; }
-      const rs = e.target.closest('[data-auth-resend]');
-      if (rs) { this.doResend(rs.getAttribute('data-auth-resend')); return; }
-      if (e.target.closest('#pillPass')) { this.openPassModal(null); return; }
+      if (e.target.closest('#pillPass')) { this.openPassModal(); return; }
       if (e.target.closest('#passSubmit')) { this.submitNewPass(); return; }
       if (e.target.closest('#passCancel')) { this.closePassModal(); return; }
       const login = e.target.closest('[data-auth-login]');
@@ -1597,6 +1585,8 @@ class Component extends DCLogic {
       if (e.target.closest('#dashExpComp')) { this.exportCompCsv(); return; }
       if (e.target.closest('#dashExpTime')) { this.exportTimeCsv(); return; }
       if (e.target.closest('#dashExpInst')) { this.exportInstrumenCsv(); return; }
+      const pr = e.target.closest('[data-pass-reset]');
+      if (pr) { this.resetMhsPass(pr.getAttribute('data-pass-reset')); return; }
       const view = e.target.closest('[data-dash-view]'); if (view) { this.viewStudent(view.getAttribute('data-dash-view')); return; }
       const exp = e.target.closest('[data-dash-export]'); if (exp) { this.exportOneCsv(exp.getAttribute('data-dash-export')); return; }
     });
@@ -1610,8 +1600,8 @@ class Component extends DCLogic {
     bL.style.background = !signup ? '#fff' : 'transparent'; bL.style.color = !signup ? 'var(--teal-d)' : 'var(--muted)'; bL.style.boxShadow = !signup ? '0 2px 6px rgba(0,0,0,.08)' : 'none'; bL.style.fontWeight = !signup ? '800' : '700';
     document.getElementById('mhsFieldsProfil').style.display = signup ? 'block' : 'none';
     document.getElementById('mhsPass2Wrap').style.display = signup ? 'block' : 'none';
-    document.getElementById('mhsEmailHint').style.display = signup ? 'block' : 'none';
     document.getElementById('mhsSubmitBtn').textContent = signup ? 'Daftar sebagai Mahasiswa' : 'Masuk sebagai Mahasiswa';
+    document.getElementById('mhsForgotWrap').style.display = signup ? 'none' : 'block';
     document.getElementById('mhsPass').setAttribute('autocomplete', signup ? 'new-password' : 'current-password');
     this.hideMsg('mhs');
   }
@@ -1622,7 +1612,6 @@ class Component extends DCLogic {
     const bS = document.getElementById('dosenModeSignup'), bL = document.getElementById('dosenModeLogin');
     bS.style.background = signup ? '#fff' : 'transparent'; bS.style.color = signup ? 'var(--indigo)' : 'var(--muted)'; bS.style.boxShadow = signup ? '0 2px 6px rgba(0,0,0,.08)' : 'none'; bS.style.fontWeight = signup ? '800' : '700';
     bL.style.background = !signup ? '#fff' : 'transparent'; bL.style.color = !signup ? 'var(--indigo)' : 'var(--muted)'; bL.style.boxShadow = !signup ? '0 2px 6px rgba(0,0,0,.08)' : 'none'; bL.style.fontWeight = !signup ? '800' : '700';
-    document.getElementById('dosenFieldsProfil').style.display = signup ? 'block' : 'none';
     document.getElementById('dosenRegCodeWrap').style.display = signup ? 'block' : 'none';
     document.getElementById('dosenPass2Wrap').style.display = signup ? 'block' : 'none';
     document.getElementById('dosenSubmitBtn').textContent = signup ? 'Daftar sebagai Dosen' : 'Masuk sebagai Dosen';
@@ -1658,73 +1647,77 @@ class Component extends DCLogic {
 
   async doLogin(role) {
     const signup = (role === 'mhs' ? this.mhsMode : this.dosenMode) === 'signup';
-    const email = (document.getElementById(role === 'mhs' ? 'mhsEmail' : 'dosenEmail').value || '').trim().toLowerCase();
     const pass = document.getElementById(role === 'mhs' ? 'mhsPass' : 'dosenPass').value || '';
     const name = (document.getElementById(role === 'mhs' ? 'mhsName' : 'dosenName').value || '').trim();
     this.hideMsg(role);
-    if (!email || email.indexOf('@') < 1) return this.showErr(role, 'Masukkan email pribadi yang valid.');
     if (!pass) return this.showErr(role, 'Kata sandi wajib diisi.');
-    let nim = '', kelas = '';
-    if (role === 'mhs') {
-      nim = (document.getElementById('mhsNim').value || '').trim().replace(/[^A-Za-z0-9_-]/g, '');
-      kelas = (document.getElementById('mhsKelas').value || '').trim();
-    }
 
-    if (signup) {
-      if (pass.length < 6) return this.showErr(role, 'Kata sandi minimal 6 karakter.');
-      const p2 = document.getElementById(role === 'mhs' ? 'mhsPass2' : 'dosenPass2').value || '';
-      if (pass !== p2) return this.showErr(role, 'Ulangi kata sandi tidak cocok.');
-      if (!name) return this.showErr(role, 'Nama wajib diisi.');
-      if (role === 'mhs' && !nim) return this.showErr(role, 'NIM wajib diisi (huruf/angka).');
-      if (role === 'dosen') {
-        const code = document.getElementById('dosenRegCode').value || '';
-        if (code !== this.DOSEN_SECRET) return this.showErr(role, 'Kode registrasi dosen salah.');
+    if (role === 'mhs') {
+      const nim = (document.getElementById('mhsNim').value || '').trim().replace(/[^A-Za-z0-9_-]/g, '');
+      const kelas = (document.getElementById('mhsKelas').value || '').trim();
+      if (!nim) return this.showErr(role, 'NIM wajib diisi (huruf/angka).');
+      if (signup) {
+        if (pass.length < 6) return this.showErr(role, 'Kata sandi minimal 6 karakter.');
+        if (pass !== (document.getElementById('mhsPass2').value || '')) return this.showErr(role, 'Ulangi kata sandi tidak cocok.');
+        if (!name) return this.showErr(role, 'Nama lengkap wajib diisi.');
+        if (!kelas) return this.showErr(role, 'Kelas / rombel wajib diisi.');
+        if (!this.cloudAuthOn()) {
+          const db = this.getDB();
+          if (db[nim] && db[nim].password) return this.showErr(role, 'NIM ' + nim + ' sudah terdaftar pada perangkat ini. Pilih <b>Masuk</b>.');
+          return this.finishLocal(role, { name: name, nim: nim, kelas: kelas });
+        }
+        this.busy(role, true);
+        const r = await window.EcbookCloud.mhsSignUp(nim, name, kelas, pass);
+        this.busy(role, false);
+        if (!r.ok) return this.showErr(role, r.error);
+        return this.finishSession(role, { name: name, nim: nim, kelas: kelas });
       }
-      if (role === 'mhs') {
-        const reg = this.getDB()[nim];
-        if (reg && reg.email && reg.email !== email) return this.showErr(role, 'NIM ' + nim + ' sudah terdaftar dengan email lain (' + this.esc(reg.email) + ').');
+      if (!this.cloudAuthOn()) {
+        const db = this.getDB(), rec = db[nim];
+        if (!rec || !rec.password) return this.showErr(role, 'NIM belum terdaftar pada perangkat ini. Pilih <b>Daftar Baru</b>.');
+        if (rec.password !== pass) return this.showErr(role, 'Kata sandi salah.');
+        return this.finishSession(role, { name: rec.name || nim, nim: nim, kelas: rec.kelas || '' });
       }
-      if (!this.cloudAuthOn()) return this.finishLocal(role, { name: name, nim: nim, kelas: kelas, email: email });
       this.busy(role, true);
-      const r = await window.EcbookCloud.signUp(email, pass, { role: role, name: name, nim: role === 'mhs' ? nim : 'DOSEN', kelas: kelas });
+      const r = await window.EcbookCloud.mhsSignIn(nim, pass);
       this.busy(role, false);
       if (!r.ok) return this.showErr(role, r.error);
-      if (r.needConfirm) return this.showOk(role, 'Pendaftaran berhasil. Kami mengirim <b>email konfirmasi</b> ke <b>' + this.esc(email) + '</b>. Buka email itu, klik tautannya, lalu kembali ke halaman ini dan pilih <b>Masuk</b>.');
-      return this.finishSession(role, { name: name, nim: nim, kelas: kelas, email: email });
+      return this.finishSession(role, { name: r.user.name, nim: r.user.nim, kelas: r.user.kelas });
     }
 
+    if (!name) return this.showErr(role, 'Nama dosen wajib diisi.');
+    if (signup) {
+      if ((document.getElementById('dosenRegCode').value || '') !== this.DOSEN_SECRET) return this.showErr(role, 'Kode registrasi dosen salah.');
+      if (pass.length < 6) return this.showErr(role, 'Kata sandi minimal 6 karakter.');
+      if (pass !== (document.getElementById('dosenPass2').value || '')) return this.showErr(role, 'Ulangi kata sandi tidak cocok.');
+      if (!this.cloudAuthOn()) return this.finishLocal(role, { name: name, nim: 'DOSEN', kelas: '' });
+      this.busy(role, true);
+      const r = await window.EcbookCloud.dosenSignUp(name, pass);
+      this.busy(role, false);
+      if (!r.ok) return this.showErr(role, r.error);
+      return this.finishSession(role, { name: r.user.name, nim: 'DOSEN', kelas: '' });
+    }
     if (!this.cloudAuthOn()) {
-      if (role === 'mhs') {
-        const db = this.getDB();
-        const hit = Object.keys(db).find((k) => (db[k].email || '') === email);
-        if (!hit) return this.showErr(role, 'Email belum terdaftar pada perangkat ini. Pilih Daftar Baru.');
-        if ((db[hit].password || '') !== pass) return this.showErr(role, 'Kata sandi salah.');
-        return this.finishSession(role, { name: db[hit].name, nim: hit, kelas: db[hit].kelas || '', email: email });
-      }
       let acc = {};
       try { acc = JSON.parse(localStorage.getItem('ecbook:dosenAccounts') || '{}'); } catch (e) {}
-      const a = acc[email];
-      if (!a) return this.showErr(role, 'Email belum terdaftar pada perangkat ini. Pilih Daftar Baru.');
+      const key = name.toLowerCase().replace(/\s+/g, ' ');
+      const a = acc[key];
+      if (!a) return this.showErr(role, 'Nama dosen belum terdaftar pada perangkat ini. Pilih <b>Daftar Baru</b>.');
       if (a.password !== pass) return this.showErr(role, 'Kata sandi salah.');
-      return this.finishSession(role, { name: a.name, nim: 'DOSEN', kelas: '', email: email });
+      return this.finishSession(role, { name: a.name, nim: 'DOSEN', kelas: '' });
     }
-
     this.busy(role, true);
-    const r = await window.EcbookCloud.signIn(email, pass);
+    const r = await window.EcbookCloud.dosenSignIn(name, pass);
     this.busy(role, false);
     if (!r.ok) return this.showErr(role, r.error);
-    const md = (r.user && r.user.user_metadata) || {};
-    if (md.role && md.role !== role) return this.showErr(role, 'Email ini terdaftar sebagai <b>' + (md.role === 'mhs' ? 'Mahasiswa' : 'Dosen') + '</b>. Gunakan tab yang sesuai.');
-    return this.finishSession(role, { name: md.name || name || email.split('@')[0], nim: role === 'mhs' ? (md.nim || nim) : 'DOSEN', kelas: md.kelas || kelas || '', email: email });
+    return this.finishSession(role, { name: r.user.name, nim: 'DOSEN', kelas: '' });
   }
 
   finishSession(role, info) {
-    if (role === 'mhs' && !info.nim) return this.showErr(role, 'Data NIM tidak ditemukan pada akun ini. Hubungi dosen Anda.');
-    const u = { role: role, name: info.name, nim: role === 'mhs' ? info.nim : 'DOSEN', kelas: info.kelas || '', email: info.email };
+    if (role === 'mhs' && !info.nim) return this.showErr(role, 'NIM tidak ditemukan.');
+    const u = { role: role, name: info.name, nim: role === 'mhs' ? info.nim : 'DOSEN', kelas: info.kelas || '' };
     localStorage.setItem('ecbook:session', JSON.stringify(u));
-    if (role === 'mhs') {
-      try { const db = this.getDB(); const rec = this.touchRec(db, u); rec.email = info.email; this.saveDB(db); } catch (e) {}
-    }
+    if (role === 'mhs') { try { const db = this.getDB(); this.touchRec(db, u); this.saveDB(db); } catch (e) {} }
     this.applyAuth(u);
     window.scrollTo(0, 0);
   }
@@ -1733,7 +1726,7 @@ class Component extends DCLogic {
     if (role === 'mhs') {
       const db = this.getDB();
       const rec = db[info.nim] || {};
-      rec.name = info.name; rec.kelas = info.kelas || rec.kelas || ''; rec.email = info.email;
+      rec.name = info.name; rec.kelas = info.kelas || rec.kelas || '';
       rec.password = document.getElementById('mhsPass').value || '';
       if (!rec.registeredAt) rec.registeredAt = Date.now();
       rec.updated = Date.now();
@@ -1742,46 +1735,41 @@ class Component extends DCLogic {
     } else {
       let acc = {};
       try { acc = JSON.parse(localStorage.getItem('ecbook:dosenAccounts') || '{}'); } catch (e) {}
-      acc[info.email] = { name: info.name, password: document.getElementById('dosenPass').value || '', registeredAt: Date.now() };
+      acc[info.name.toLowerCase().replace(/\s+/g, ' ')] = { name: info.name, password: document.getElementById('dosenPass').value || '', registeredAt: Date.now() };
       try { localStorage.setItem('ecbook:dosenAccounts', JSON.stringify(acc)); } catch (e) {}
     }
     this.finishSession(role, info);
   }
 
-  async doForgot(role) {
-    const email = (document.getElementById(role === 'mhs' ? 'mhsEmail' : 'dosenEmail').value || '').trim().toLowerCase();
-    if (!email || email.indexOf('@') < 1) return this.showErr(role, 'Isi kolom <b>Email Pribadi</b> terlebih dahulu, lalu tekan Lupa kata sandi.');
-    if (!this.cloudAuthOn()) return this.showErr(role, 'Pemulihan lewat email memerlukan sambungan server. Hubungi pengelola bahan ajar.');
-    this.hideMsg(role);
-    const r = await window.EcbookCloud.requestReset(email);
-    if (!r.ok) return this.showErr(role, r.error);
-    this.showOk(role, 'Tautan atur ulang kata sandi dikirim ke <b>' + this.esc(email) + '</b>. Buka email itu dan klik tautannya; Anda akan diminta membuat kata sandi baru di halaman ini.');
+  doForgot(role) {
+    if (role === 'mhs') {
+      return this.showErr(role, 'Kata sandi mahasiswa diatur ulang oleh dosen. Hubungi dosen Anda dengan menyebutkan <b>NIM</b>; dosen dapat menyetel ulang kata sandi Anda dari dasbor monitoring.');
+    }
+    return this.showErr(role, 'Untuk mengatur ulang kata sandi dosen: pilih <b>Daftar Baru</b>, masukkan nama yang sama beserta <b>kode registrasi</b>, lalu tekan tombol pada pesan yang muncul untuk menimpa kata sandi lama.');
   }
 
-  async doResend(role) {
-    const email = (document.getElementById(role === 'mhs' ? 'mhsEmail' : 'dosenEmail').value || '').trim().toLowerCase();
-    if (!email || email.indexOf('@') < 1) return this.showErr(role, 'Isi kolom <b>Email Pribadi</b> terlebih dahulu.');
-    if (!this.cloudAuthOn()) return this.showErr(role, 'Fitur ini memerlukan sambungan server.');
-    this.hideMsg(role);
-    const r = await window.EcbookCloud.resendConfirm(email);
-    if (!r.ok) return this.showErr(role, r.error);
-    this.showOk(role, 'Email konfirmasi dikirim ulang ke <b>' + this.esc(email) + '</b>. Periksa juga folder spam.');
+  async dosenResetOwn(name, pass) {
+    if (!this.cloudAuthOn()) {
+      let acc = {};
+      try { acc = JSON.parse(localStorage.getItem('ecbook:dosenAccounts') || '{}'); } catch (e) {}
+      const key = name.toLowerCase().replace(/\s+/g, ' ');
+      if (acc[key]) { acc[key].password = pass; localStorage.setItem('ecbook:dosenAccounts', JSON.stringify(acc)); }
+      return { ok: true };
+    }
+    return window.EcbookCloud.dosenSetPass(name, pass);
   }
 
-  openPassModal(recoveryToken) {
-    this._recoveryToken = recoveryToken || null;
+  openPassModal() {
     const m = document.getElementById('passModal');
     if (!m) return;
     document.getElementById('passNew').value = '';
     document.getElementById('passNew2').value = '';
     document.getElementById('passMsg').style.display = 'none';
-    document.getElementById('passTitle').textContent = recoveryToken ? 'Buat Kata Sandi Baru' : 'Ubah Kata Sandi';
-    document.getElementById('passHint').textContent = recoveryToken
-      ? 'Tautan pemulihan Anda sah. Masukkan kata sandi baru untuk akun Anda.'
-      : 'Kata sandi baru berlaku untuk akun email Anda di seluruh perangkat.';
+    document.getElementById('passTitle').textContent = 'Ubah Kata Sandi';
+    document.getElementById('passHint').textContent = 'Kata sandi baru berlaku untuk akun Anda di seluruh perangkat.';
     m.style.display = 'block';
   }
-  closePassModal() { const m = document.getElementById('passModal'); if (m) m.style.display = 'none'; this._recoveryToken = null; }
+  closePassModal() { const m = document.getElementById('passModal'); if (m) m.style.display = 'none'; }
 
   async submitNewPass() {
     const p1 = document.getElementById('passNew').value || '', p2 = document.getElementById('passNew2').value || '';
@@ -1789,31 +1777,21 @@ class Component extends DCLogic {
     const say = (t, ok) => { msg.innerHTML = t; msg.style.color = ok ? 'var(--green)' : 'var(--coral)'; msg.style.display = 'block'; };
     if (p1.length < 6) return say('Kata sandi minimal 6 karakter.', false);
     if (p1 !== p2) return say('Ulangi kata sandi tidak cocok.', false);
+    const u = this.cu();
+    if (!u) return say('Sesi tidak ditemukan. Masuk kembali lalu ulangi.', false);
     if (!this.cloudAuthOn()) {
-      const u = this.cu();
-      if (u && u.role === 'mhs') { const db = this.getDB(); if (db[u.nim]) { db[u.nim].password = p1; this.saveDB(db); } }
-      else if (u) { let a = {}; try { a = JSON.parse(localStorage.getItem('ecbook:dosenAccounts') || '{}'); } catch (e) {} if (a[u.email]) { a[u.email].password = p1; localStorage.setItem('ecbook:dosenAccounts', JSON.stringify(a)); } }
+      if (u.role === 'mhs') { const db = this.getDB(); if (db[u.nim]) { db[u.nim].password = p1; this.saveDB(db); } }
+      else { let a = {}; try { a = JSON.parse(localStorage.getItem('ecbook:dosenAccounts') || '{}'); } catch (e) {} const k = (u.name || '').toLowerCase().replace(/\s+/g, ' '); if (a[k]) { a[k].password = p1; localStorage.setItem('ecbook:dosenAccounts', JSON.stringify(a)); } }
       return say('Kata sandi diperbarui pada perangkat ini.', true);
     }
-    const r = await window.EcbookCloud.updatePassword(p1, this._recoveryToken);
+    const r = u.role === 'mhs'
+      ? await window.EcbookCloud.mhsSetPass(u.nim, p1)
+      : await window.EcbookCloud.dosenSetPass(u.name, p1);
     if (!r.ok) return say(r.error, false);
     say('Kata sandi berhasil diperbarui. Gunakan kata sandi baru saat masuk berikutnya.', true);
     setTimeout(() => this.closePassModal(), 1800);
   }
 
-  async handleEmailLink() {
-    if (!window.EcbookCloud || !window.EcbookCloud.readUrlToken) return;
-    const t = window.EcbookCloud.readUrlToken();
-    if (!t) return;
-    if (t.error) { this.showGate(); this.showErr('mhs', t.error); return; }
-    if (t.type === 'recovery') { this.showGate(); this.openPassModal(t.access_token); return; }
-    window.EcbookCloud.saveToken({ access_token: t.access_token, refresh_token: t.refresh_token });
-    const usr = await window.EcbookCloud.currentUser();
-    if (!usr) { this.showGate(); this.showOk('mhs', 'Email Anda telah dikonfirmasi. Silakan pilih <b>Masuk</b>.'); return; }
-    const md = usr.user_metadata || {};
-    const role = md.role === 'dosen' ? 'dosen' : 'mhs';
-    this.finishSession(role, { name: md.name || usr.email.split('@')[0], nim: md.nim || '', kelas: md.kelas || '', email: usr.email });
-  }
 
   logout() {
     if (window.EcbookCloud && window.EcbookCloud.signOut) window.EcbookCloud.signOut();
@@ -2043,7 +2021,7 @@ class Component extends DCLogic {
   }
 
   dashTabBar() {
-    const tabs = [['ringkasan', 'Ringkasan'], ['kompetensi', 'Kompetensi (Kuis)'], ['pertemuan', 'Per Pertemuan'], ['butir', 'Analisis Butir'], ['instrumen', 'Pretest → Posttest'], ['waktu', 'Waktu Pengerjaan']];
+    const tabs = [['ringkasan', 'Ringkasan'], ['kompetensi', 'Kompetensi (Kuis)'], ['pertemuan', 'Per Pertemuan'], ['butir', 'Analisis Butir'], ['instrumen', 'Pretest → Posttest'], ['waktu', 'Waktu Pengerjaan'], ['akun', 'Akun']];
     const cur = this.dashTab || 'ringkasan';
     return '<div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px; border-bottom:1px solid var(--line); padding-bottom:10px;">' +
       tabs.map((t) => '<button data-dash-tab="' + t[0] + '" style="padding:8px 15px; border:1px solid ' + (cur === t[0] ? '#0e8388' : 'var(--line)') + '; border-radius:9px; background:' + (cur === t[0] ? 'linear-gradient(135deg,#0e8388,#2f8f5b)' : '#fff') + '; color:' + (cur === t[0] ? '#fff' : 'var(--muted)') + '; font-weight:' + (cur === t[0] ? '800' : '700') + '; font-family:inherit; font-size:13px; cursor:pointer;">' + t[1] + '</button>').join('') + '</div>';
@@ -2238,6 +2216,27 @@ class Component extends DCLogic {
       html += '</tbody></table></div><p style="font-size:11.5px; color:var(--muted); margin:10px 0 0;">Angka besar = rata-rata skor, angka kecil = jumlah butir terisi (dan sudah dinilai untuk esai). Pretest dan posttest memakai soal yang identik sehingga selisihnya dapat dibandingkan langsung. Ketiga esai terbuka angket termasuk dalam kelompok EA dan hanya dihitung keterisiannya, tanpa penilaian.</p>';
     }
 
+    if (tab === 'akun') {
+      html += '<div style="background:#eef2fb; border:1px solid #cdd8ef; border-radius:12px; padding:13px 16px; margin-bottom:14px; font-size:12.5px; color:var(--body);">Mahasiswa masuk dengan <b>NIM + kata sandi</b>; dosen dengan <b>nama + kode registrasi + kata sandi</b>. Kata sandi disimpan sebagai <i>hash</i> SHA-256, sehingga tidak dapat dibaca siapa pun &mdash; termasuk Anda. Bila mahasiswa lupa kata sandi, setel ulang di sini lalu sampaikan kata sandi baru kepada yang bersangkutan.</div>';
+      html += '<div style="font:700 12px/1 \'Mulish\'; letter-spacing:.1em; text-transform:uppercase; color:var(--indigo); margin:0 0 9px;">Akun Dosen</div>';
+      html += '<div id="dosenTable" style="background:#fff; border:1px solid var(--line); border-radius:12px; padding:22px; text-align:center; color:var(--muted); font-size:13px; margin-bottom:20px;">Memuat data dosen…</div>';
+      html += '<div style="font:700 12px/1 \'Mulish\'; letter-spacing:.1em; text-transform:uppercase; color:var(--teal-d); margin:0 0 9px;">Akun Mahasiswa &middot; ' + students.length + ' terdaftar</div>';
+      if (!students.length) {
+        html += '<div style="background:#fff; border:1px dashed var(--line); border-radius:12px; padding:26px; text-align:center; color:var(--muted); font-size:13.5px;">Belum ada mahasiswa terdaftar.</div>';
+      } else {
+        html += '<div style="overflow-x:auto; background:#fff; border:1px solid var(--line); border-radius:12px;"><table style="width:100%; border-collapse:collapse; font-size:12.5px; min-width:620px;"><thead><tr style="background:#0c2a30; color:#fff; text-align:left;"><th style="padding:10px 12px;">NIM</th><th style="padding:10px 12px;">Nama</th><th style="padding:10px 12px;">Kelas</th><th style="padding:10px 12px;">Aktivitas terakhir</th><th style="padding:10px 12px; text-align:center;">Kata sandi</th></tr></thead><tbody>';
+        students.forEach((s, i) => {
+          html += '<tr style="border-top:1px solid var(--line); ' + (i % 2 ? 'background:#f7fbfa;' : '') + '">' +
+            '<td style="padding:9px 12px; font-weight:700; color:var(--ink);">' + this.esc(s.nim) + '</td>' +
+            '<td style="padding:9px 12px;">' + this.esc(s.name) + '</td>' +
+            '<td style="padding:9px 12px; color:var(--muted);">' + (this.esc(s.kelas) || '—') + '</td>' +
+            '<td style="padding:9px 12px; color:var(--muted);">' + this.fmtDate(s.updated) + '</td>' +
+            '<td style="padding:9px 12px; text-align:center;"><button data-pass-reset="' + this.esc(s.nim) + '" style="padding:6px 12px; border:1px solid #ecdcc0; border-radius:8px; background:#fdf8ef; color:#a86a1e; font-weight:700; font-family:inherit; font-size:11.5px; cursor:pointer;">Setel ulang</button></td></tr>';
+        });
+        html += '</tbody></table></div>';
+      }
+    }
+
     if (tab === 'waktu') {
       const agg = {};
       students.forEach((s) => {
@@ -2289,8 +2288,47 @@ class Component extends DCLogic {
     }
 
     body.innerHTML = html;
+    if (tab === 'akun') this.renderDosenTable();
     const si = document.getElementById('dashSearch');
     if (si && q) { si.focus(); si.setSelectionRange(si.value.length, si.value.length); }
+  }
+
+  async renderDosenTable() {
+    const box = document.getElementById('dosenTable');
+    if (!box) return;
+    if (!this.cloudAuthOn()) {
+      let acc = {};
+      try { acc = JSON.parse(localStorage.getItem('ecbook:dosenAccounts') || '{}'); } catch (e) {}
+      const ks = Object.keys(acc);
+      box.innerHTML = ks.length
+        ? '<div style="padding:12px 16px; text-align:left; font-size:12.5px; color:var(--body);">' + ks.map((k) => '<div style="padding:6px 0; border-bottom:1px solid var(--line);"><b>' + this.esc(acc[k].name) + '</b> <span style="color:var(--muted);">· terdaftar ' + this.fmtDate(acc[k].registeredAt) + '</span></div>').join('') + '</div><div style="padding:10px 16px; font-size:11.5px; color:var(--muted); text-align:left;">Data lokal perangkat ini. Sambungkan Supabase agar tabel dosen tersimpan terpusat.</div>'
+        : 'Belum ada akun dosen pada perangkat ini.';
+      return;
+    }
+    const rows = await window.EcbookCloud.dosenList();
+    if (!rows.length) { box.innerHTML = 'Belum ada akun dosen terdaftar.'; return; }
+    const me = this.cu();
+    box.style.padding = '0'; box.style.textAlign = 'left';
+    box.innerHTML = '<div style="overflow-x:auto;"><table style="width:100%; border-collapse:collapse; font-size:12.5px; min-width:520px;"><thead><tr style="background:#123f45; color:#fff; text-align:left;"><th style="padding:10px 12px;">Nama Dosen</th><th style="padding:10px 12px;">Terdaftar</th><th style="padding:10px 12px;">Masuk terakhir</th></tr></thead><tbody>' +
+      rows.map((r, i) => '<tr style="border-top:1px solid var(--line); ' + (i % 2 ? 'background:#f7fbfa;' : '') + '"><td style="padding:9px 12px; font-weight:700; color:var(--ink);">' + this.esc(r.name) + (me && this.norm(me.name) === r.uname ? ' <span style="font-weight:600; font-size:10.5px; color:var(--indigo);">(Anda)</span>' : '') + '</td><td style="padding:9px 12px; color:var(--muted);">' + this.fmtDate(r.registered_at ? Date.parse(r.registered_at) : 0) + '</td><td style="padding:9px 12px; color:var(--muted);">' + this.fmtDate(r.last_login ? Date.parse(r.last_login) : 0) + '</td></tr>').join('') +
+      '</tbody></table></div>';
+  }
+
+  norm(s) { return (s || '').trim().toLowerCase().replace(/\s+/g, ' '); }
+
+  async resetMhsPass(nim) {
+    const s = this.listStudents().find((x) => x.nim === nim);
+    const nm = s ? s.name : nim;
+    const p = window.prompt('Setel ulang kata sandi untuk ' + nm + ' (NIM ' + nim + ').\n\nMasukkan kata sandi baru (minimal 6 karakter):', '');
+    if (p == null) return;
+    if (p.length < 6) { window.alert('Kata sandi minimal 6 karakter. Tidak ada perubahan.'); return; }
+    if (!this.cloudAuthOn()) {
+      const db = this.getDB();
+      if (db[nim]) { db[nim].password = p; this.saveDB(db); window.alert('Kata sandi ' + nm + ' diperbarui pada perangkat ini.'); }
+      return;
+    }
+    const r = await window.EcbookCloud.mhsSetPass(nim, p);
+    window.alert(r.ok ? 'Kata sandi ' + nm + ' berhasil disetel ulang. Sampaikan kata sandi baru kepada yang bersangkutan.' : ('Gagal: ' + r.error));
   }
 
   exportInstrumenCsv() {
@@ -2548,7 +2586,7 @@ class Component extends DCLogic {
   delStudent(nim) {
     const s = this.listStudents().find((x) => x.nim === nim);
     const nm = s ? s.name : nim;
-    if (!window.confirm('Hapus semua data mahasiswa "' + nm + '" (NIM ' + nim + ')?\nSeluruh jawaban, kuis, angket, & skor akan reset ke 0. Tindakan ini tidak dapat dibatalkan.')) return;
+    if (!window.confirm('Hapus akun dan seluruh data mahasiswa "' + nm + '" (NIM ' + nim + ')?\n\n· Semua jawaban, kuis, angket, skor, dan catatan waktu terhapus\n· Akun beserta kata sandinya juga terhapus, sehingga mahasiswa perlu mendaftar ulang\n\nTindakan ini tidak dapat dibatalkan.')) return;
     try {
       const db = this.getDB();
       delete db[nim];
@@ -2561,7 +2599,7 @@ class Component extends DCLogic {
   delAll() {
     const n = this.listStudents().length;
     if (!n) { window.alert('Belum ada data mahasiswa untuk dihapus.'); return; }
-    if (!window.confirm('Hapus SELURUH data ' + n + ' mahasiswa pada perangkat ini?\nSemua jawaban, kuis, angket, & skor akan reset ke 0 -- termasuk data di cloud. Tindakan ini tidak dapat dibatalkan.')) return;
+    if (!window.confirm('Hapus SELURUH akun dan data ' + n + ' mahasiswa?\n\n· Semua jawaban, kuis, angket, skor, dan catatan waktu terhapus\n· Semua akun mahasiswa beserta kata sandinya terhapus dan perlu mendaftar ulang\n· Akun dosen TIDAK terpengaruh\n\nTindakan ini berlaku pada seluruh perangkat dan tidak dapat dibatalkan.')) return;
     try {
       this.saveDB({});
     } catch (e) {}

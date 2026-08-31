@@ -195,130 +195,127 @@ window.EcbookCloud = (function () {
   }
 
 
-  // ================= AUTENTIKASI (Supabase Auth) =================
-  const SESSION_KEY = 'ecbook:authToken';
+  // ================= AUTENTIKASI (tabel akun, tanpa email) =================
 
-  function saveToken(obj) {
-    try { localStorage.setItem(SESSION_KEY, JSON.stringify(obj || null)); } catch (e) {}
+  // ---- utilitas kata sandi (SHA-256, tanpa email) ----
+  async function hashPass(pass) {
+    const enc = new TextEncoder().encode('ecbook:' + pass);
+    const buf = await crypto.subtle.digest('SHA-256', enc);
+    return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
   }
-  function loadToken() {
-    try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null'); } catch (e) { return null; }
+  function normName(name) {
+    return (name || '').trim().toLowerCase().replace(/\s+/g, ' ');
   }
-  function clearToken() {
-    try { localStorage.removeItem(SESSION_KEY); } catch (e) {}
-  }
-  function redirectBase() {
-    // Halaman tujuan setelah mahasiswa/dosen mengeklik tautan pada email
-    return baseUrl() ? (window.location.origin + window.location.pathname) : window.location.href;
-  }
-  async function authFetch(path, opts) {
-    const res = await fetch(baseUrl() + '/auth/v1' + path, Object.assign({ headers: headers() }, opts || {}));
-    let body = null;
-    try { body = await res.json(); } catch (e) {}
-    if (!res.ok) {
-      const msg = (body && (body.msg || body.error_description || body.message || body.error)) || ('HTTP ' + res.status);
-      return { ok: false, error: translateErr(msg), raw: body };
-    }
-    return { ok: true, data: body };
-  }
-  function translateErr(m) {
-    const s = String(m || '').toLowerCase();
-    if (s.indexOf('already registered') > -1 || s.indexOf('already been registered') > -1) return 'Email ini sudah terdaftar. Silakan pilih Masuk atau gunakan Lupa Kata Sandi.';
-    if (s.indexOf('invalid login') > -1 || s.indexOf('invalid credentials') > -1) return 'Email atau kata sandi salah.';
-    if (s.indexOf('email not confirmed') > -1) return 'Email Anda belum dikonfirmasi. Buka tautan konfirmasi yang kami kirim ke email Anda.';
-    if (s.indexOf('password should be at least') > -1) return 'Kata sandi minimal 6 karakter.';
-    if (s.indexOf('unable to validate email') > -1 || s.indexOf('invalid email') > -1) return 'Format email tidak valid.';
-    if (s.indexOf('rate limit') > -1 || s.indexOf('too many') > -1) return 'Terlalu banyak percobaan. Tunggu beberapa menit lalu coba lagi.';
-    if (s.indexOf('same as the old') > -1) return 'Kata sandi baru tidak boleh sama dengan yang lama.';
-    return m;
+  const SESSION_KEY = 'ecbook:session';
+
+  // ---- akun MAHASISWA (kunci: NIM) ----
+  async function mhsSignUp(nim, name, kelas, pass) {
+    if (!ready()) return { ok: false, error: 'Server belum tersambung.' };
+    try {
+      const ada = await fetch(baseUrl() + '/rest/v1/ecbook_students?nim=eq.' + encodeURIComponent(nim) + '&select=nim,password_hash', { headers: headers() });
+      const rows = ada.ok ? await ada.json() : [];
+      if (rows && rows[0] && rows[0].password_hash) return { ok: false, error: 'NIM ' + nim + ' sudah terdaftar. Silakan pilih <b>Masuk</b>.' };
+      const ph = await hashPass(pass);
+      const res = await fetch(baseUrl() + '/rest/v1/ecbook_students', {
+        method: 'POST',
+        headers: headers({ Prefer: 'resolution=merge-duplicates' }),
+        body: JSON.stringify([{ nim: nim, name: name, kelas: kelas || null, password_hash: ph, updated_at: new Date().toISOString() }])
+      });
+      await logIfError(res, 'mhsSignUp');
+      if (!res.ok) return { ok: false, error: 'Pendaftaran gagal (HTTP ' + res.status + ').' };
+      return { ok: true, user: { nim: nim, name: name, kelas: kelas || '' } };
+    } catch (e) { return { ok: false, error: 'Tidak dapat menghubungi server.' }; }
   }
 
-  // Daftar akun baru; Supabase mengirim email konfirmasi otomatis
-  async function signUp(email, password, meta) {
-    if (!ready()) return { ok: false, error: 'Server belum terhubung. Hubungi pengelola.' };
-    const r = await authFetch('/signup', {
-      method: 'POST',
-      body: JSON.stringify({ email: email, password: password, data: meta || {},
-        gotrue_meta_security: {}, options: { emailRedirectTo: redirectBase() } })
-    });
-    if (!r.ok) return r;
-    const d = r.data || {};
-    // Bila konfirmasi email diaktifkan, access_token belum diberikan
-    const needConfirm = !d.access_token;
-    if (d.access_token) saveToken({ access_token: d.access_token, refresh_token: d.refresh_token, user: d.user });
-    return { ok: true, needConfirm: needConfirm, user: d.user || (d.id ? d : null) };
+  async function mhsSignIn(nim, pass) {
+    if (!ready()) return { ok: false, error: 'Server belum tersambung.' };
+    try {
+      const res = await fetch(baseUrl() + '/rest/v1/ecbook_students?nim=eq.' + encodeURIComponent(nim) + '&select=nim,name,kelas,password_hash', { headers: headers() });
+      if (!res.ok) return { ok: false, error: 'Tidak dapat menghubungi server.' };
+      const rows = await res.json();
+      const r = rows && rows[0];
+      if (!r || !r.password_hash) return { ok: false, error: 'NIM belum terdaftar. Silakan pilih <b>Daftar Baru</b>.' };
+      const ph = await hashPass(pass);
+      if (ph !== r.password_hash) return { ok: false, error: 'Kata sandi salah.' };
+      return { ok: true, user: { nim: r.nim, name: r.name || nim, kelas: r.kelas || '' } };
+    } catch (e) { return { ok: false, error: 'Tidak dapat menghubungi server.' }; }
   }
 
-  async function signIn(email, password) {
-    if (!ready()) return { ok: false, error: 'Server belum terhubung. Hubungi pengelola.' };
-    const r = await authFetch('/token?grant_type=password', {
-      method: 'POST', body: JSON.stringify({ email: email, password: password })
-    });
-    if (!r.ok) return r;
-    const d = r.data || {};
-    saveToken({ access_token: d.access_token, refresh_token: d.refresh_token, user: d.user });
-    return { ok: true, user: d.user };
+  async function mhsSetPass(nim, pass) {
+    if (!ready()) return { ok: false, error: 'Server belum tersambung.' };
+    try {
+      const ph = await hashPass(pass);
+      const res = await fetch(baseUrl() + '/rest/v1/ecbook_students?nim=eq.' + encodeURIComponent(nim), {
+        method: 'PATCH', headers: headers(), body: JSON.stringify({ password_hash: ph })
+      });
+      await logIfError(res, 'mhsSetPass');
+      return res.ok ? { ok: true } : { ok: false, error: 'Gagal memperbarui kata sandi.' };
+    } catch (e) { return { ok: false, error: 'Tidak dapat menghubungi server.' }; }
   }
 
-  async function resendConfirm(email) {
-    if (!ready()) return { ok: false, error: 'Server belum terhubung.' };
-    return authFetch('/resend', { method: 'POST', body: JSON.stringify({ type: 'signup', email: email, options: { emailRedirectTo: redirectBase() } }) });
+  // ---- akun DOSEN (kunci: nama dinormalkan) ----
+  async function dosenSignUp(name, pass) {
+    if (!ready()) return { ok: false, error: 'Server belum tersambung.' };
+    const uname = normName(name);
+    try {
+      const ada = await fetch(baseUrl() + '/rest/v1/ecbook_dosen?uname=eq.' + encodeURIComponent(uname) + '&select=uname', { headers: headers() });
+      const rows = ada.ok ? await ada.json() : [];
+      if (rows && rows[0]) return { ok: false, error: 'Nama dosen ini sudah terdaftar. Silakan pilih <b>Masuk</b>.' };
+      const ph = await hashPass(pass);
+      const res = await fetch(baseUrl() + '/rest/v1/ecbook_dosen', {
+        method: 'POST', headers: headers({ Prefer: 'resolution=merge-duplicates' }),
+        body: JSON.stringify([{ uname: uname, name: name.trim(), password_hash: ph, last_login: new Date().toISOString() }])
+      });
+      await logIfError(res, 'dosenSignUp');
+      if (!res.ok) return { ok: false, error: 'Pendaftaran gagal (HTTP ' + res.status + ').' };
+      return { ok: true, user: { name: name.trim(), uname: uname } };
+    } catch (e) { return { ok: false, error: 'Tidak dapat menghubungi server.' }; }
   }
 
-  // Kirim email tautan atur ulang kata sandi
-  async function requestReset(email) {
-    if (!ready()) return { ok: false, error: 'Server belum terhubung. Hubungi pengelola.' };
-    return authFetch('/recover', { method: 'POST', body: JSON.stringify({ email: email, options: { redirectTo: redirectBase() } }) });
+  async function dosenSignIn(name, pass) {
+    if (!ready()) return { ok: false, error: 'Server belum tersambung.' };
+    const uname = normName(name);
+    try {
+      const res = await fetch(baseUrl() + '/rest/v1/ecbook_dosen?uname=eq.' + encodeURIComponent(uname) + '&select=uname,name,password_hash', { headers: headers() });
+      if (!res.ok) return { ok: false, error: 'Tidak dapat menghubungi server.' };
+      const rows = await res.json();
+      const r = rows && rows[0];
+      if (!r) return { ok: false, error: 'Nama dosen belum terdaftar. Silakan pilih <b>Daftar Baru</b>.' };
+      const ph = await hashPass(pass);
+      if (ph !== r.password_hash) return { ok: false, error: 'Kata sandi salah.' };
+      fetch(baseUrl() + '/rest/v1/ecbook_dosen?uname=eq.' + encodeURIComponent(uname), {
+        method: 'PATCH', headers: headers(), body: JSON.stringify({ last_login: new Date().toISOString() })
+      }).catch(() => {});
+      return { ok: true, user: { name: r.name || name.trim(), uname: r.uname } };
+    } catch (e) { return { ok: false, error: 'Tidak dapat menghubungi server.' }; }
   }
 
-  // Ubah kata sandi; token dari sesi aktif atau dari tautan email
-  async function updatePassword(newPassword, tokenOverride) {
-    if (!ready()) return { ok: false, error: 'Server belum terhubung.' };
-    const t = tokenOverride || (loadToken() || {}).access_token;
-    if (!t) return { ok: false, error: 'Sesi tidak ditemukan. Masuk kembali atau gunakan tautan dari email.' };
-    return authFetch('/user', {
-      method: 'PUT',
-      headers: headers({ Authorization: 'Bearer ' + t }),
-      body: JSON.stringify({ password: newPassword })
-    });
+  async function dosenSetPass(name, pass) {
+    if (!ready()) return { ok: false, error: 'Server belum tersambung.' };
+    const uname = normName(name);
+    try {
+      const ph = await hashPass(pass);
+      const res = await fetch(baseUrl() + '/rest/v1/ecbook_dosen?uname=eq.' + encodeURIComponent(uname), {
+        method: 'PATCH', headers: headers(), body: JSON.stringify({ password_hash: ph })
+      });
+      await logIfError(res, 'dosenSetPass');
+      return res.ok ? { ok: true } : { ok: false, error: 'Gagal memperbarui kata sandi.' };
+    } catch (e) { return { ok: false, error: 'Tidak dapat menghubungi server.' }; }
   }
 
-  async function updateMeta(meta) {
-    if (!ready()) return { ok: false, error: 'Server belum terhubung.' };
-    const t = (loadToken() || {}).access_token;
-    if (!t) return { ok: false, error: 'Sesi tidak ditemukan.' };
-    return authFetch('/user', { method: 'PUT', headers: headers({ Authorization: 'Bearer ' + t }), body: JSON.stringify({ data: meta }) });
+  async function dosenList() {
+    if (!ready()) return [];
+    try {
+      const res = await fetch(baseUrl() + '/rest/v1/ecbook_dosen?select=uname,name,registered_at,last_login&order=registered_at.asc', { headers: headers() });
+      return res.ok ? (await res.json()) : [];
+    } catch (e) { return []; }
   }
 
-  async function currentUser() {
-    if (!ready()) return null;
-    const t = (loadToken() || {}).access_token;
-    if (!t) return null;
-    const r = await authFetch('/user', { headers: headers({ Authorization: 'Bearer ' + t }) });
-    return r.ok ? r.data : null;
-  }
-
-  async function signOut() {
-    const t = (loadToken() || {}).access_token;
-    clearToken();
-    if (!ready() || !t) return { ok: true };
-    try { await authFetch('/logout', { method: 'POST', headers: headers({ Authorization: 'Bearer ' + t }) }); } catch (e) {}
-    return { ok: true };
-  }
-
-  // Tangkap token dari tautan email (konfirmasi / atur ulang sandi)
-  function readUrlToken() {
-    const h = (window.location.hash || '').replace(/^#/, '');
-    if (!h) return null;
-    const p = new URLSearchParams(h);
-    const at = p.get('access_token'), type = p.get('type'), err = p.get('error_description') || p.get('error');
-    if (!at && !err) return null;
-    try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {}
-    if (err) return { error: translateErr(decodeURIComponent(err.replace(/\+/g, ' '))) };
-    return { access_token: at, refresh_token: p.get('refresh_token'), type: type };
-  }
+  function signOut() { try { localStorage.removeItem(SESSION_KEY); } catch (e) {} }
 
   return { ready, pull, push, pullAll, deleteOne, deleteAll, pullGates, pushGates, selfTest,
-    signUp, signIn, signOut, requestReset, updatePassword, updateMeta, currentUser, resendConfirm,
-    loadToken, saveToken, clearToken, readUrlToken, translateErr };
+    hashPass, normName,
+    mhsSignUp, mhsSignIn, mhsSetPass,
+    dosenSignUp, dosenSignIn, dosenSetPass, dosenList,
+    signOut };
 })();
