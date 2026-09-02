@@ -16,8 +16,8 @@
 // mempertimbangkan hal ini.
 // ============================================================================
 
-window.ECBOOK_SUPABASE_URL = 'https://vepqrozqhebotviqdqwg.supabase.co'; // <-- ganti
-window.ECBOOK_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZlcHFyb3pxaGVib3R2aXFkcXdnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgxNTg3NTUsImV4cCI6MjEwMzczNDc1NX0.xSKF3DHkruokawOAknFXZchr2Yhhk60CtQ5Zy8pp2x4'; // <-- ganti
+window.ECBOOK_SUPABASE_URL = 'https://jbnbwvtbcuuzxgjjneyn.supabase.co'; // <-- ganti
+window.ECBOOK_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpibmJ3dnRiY3V1enhnampuZXluIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzMTI3NjIsImV4cCI6MjEwMzg4ODc2Mn0.zfs2H8eliEj-XkmYQ27-6_vFNJd4J4m9A1ZMAJzCwKQ'; // <-- ganti
 
 window.EcbookCloud = (function () {
   function baseUrl() {
